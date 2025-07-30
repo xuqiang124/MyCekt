@@ -1,1 +1,4 @@
-data/Java
+data/
+
+*.DS_Store
+*.pyc

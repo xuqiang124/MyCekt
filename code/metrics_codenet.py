@@ -50,7 +50,7 @@ class KTLoss(nn.Module):
             
 
             # y_true_binary = y_true[y_true >= 0.5]
-            y_pred_binary = np.where(y_pred >= 0.5, 1, 0)
+            y_pred_binary = np.where(y_pred >= 0.6, 1, 0)
 
             # print(y_true_binary)
             auc = roc_auc_score(y_true_binary, y_pred)

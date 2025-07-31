@@ -65,6 +65,34 @@ def load_q_kc_matrix(file_path):
     return kc_ids, one_hot_matrix
 
 
+def preprocess_train_dataset(train_dataset, target_len=50, expand_factor=10, padding_value=-1.0):
+    """
+    对train_dataset进行增广采样，返回新的样本列表
+    每个样本根据自身seq_len采样扩展为多个长度为target_len的子样本
+    """
+    new_samples = []
+    for features, questions, answers in train_dataset:
+        seq_len = len(features)
+        n_samples = max(1, int(seq_len / target_len * expand_factor))
+        if seq_len <= target_len:
+            new_samples.append((features, questions, answers))
+        else:
+            interval = (seq_len - target_len) / n_samples
+            for i in range(n_samples):
+                start = int(i * interval)
+                # 在当前区间内随机选一个起点
+                max_start = int((i + 1) * interval)
+                if max_start > seq_len - target_len:
+                    max_start = seq_len - target_len
+                if max_start > start:
+                    start = np.random.randint(start, max_start + 1)
+                end = start + target_len
+                f = features[start:end]
+                q = questions[start:end]
+                a = answers[start:end]
+                new_samples.append((f, q, a))
+    return new_samples
+
 def load_dkt_dataset(file_path,  batch_size,
                      train_ratio=0.7, val_ratio=0.2, shuffle=True):
     r"""

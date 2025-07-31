@@ -13,7 +13,7 @@ from torch.optim import lr_scheduler
 from torch.cuda.amp import GradScaler
 from torch.utils.data import  DataLoader
 from metrics_codenet import KTLoss
-from processing_codenet import load_dkt_dataset, KTDataset, pad_collate
+from processing_codenet import load_dkt_dataset, KTDataset, pad_collate, preprocess_train_dataset
 from config_codenet import Config
 from early_stopping import EarlyStopping
 from train_demo import CEKT
@@ -26,7 +26,7 @@ from train_demo import CEKT
 config = Config()
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--no-cuda', action='store_true', default=True, help='Disables CUDA training.')
+parser.add_argument('--no-cuda', action='store_true', default=False, help='Disables CUDA training.')
 parser.add_argument('--seed', type=int, default=42, help='Random seed.')
 parser.add_argument('--data-dir', type=str, default='../data', help='Data dir for loading input data.')
 # parser.add_argument('--data-file', type=str, default=config.dataPath, help='Name of input data file.')
@@ -171,6 +171,11 @@ if os.path.exists(saved_data_dir):
         kc_adj = torch.tensor(kc_adj, dtype=torch.float32)
 
     # 创建DataLoader
+
+    train_dataset = preprocess_train_dataset(train_dataset)
+    val_dataset = preprocess_train_dataset(val_dataset)
+    test_dataset = preprocess_train_dataset(test_dataset)
+
     train_loader = DataLoader(train_dataset, batch_size=args.batch_size, 
                             shuffle=args.shuffle, collate_fn=pad_collate)
     valid_loader = DataLoader(val_dataset, batch_size=args.batch_size, 

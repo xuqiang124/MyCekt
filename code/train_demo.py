@@ -27,7 +27,7 @@ class GATLayer(nn.Module):
         e = self.leakyrelu(torch.matmul(a_input, self.a).squeeze(2))
         
         # 有待更新，是否采用三个不同的邻接矩阵进行筛选
-        zero_vec = -9e15 * torch.ones_like(e, requires_grad=True)
+        zero_vec = -9e15 * torch.ones_like(e)
         attention = torch.where(adj > 0, e, zero_vec)
         attention = F.softmax(attention, dim=1)
         attention = F.dropout(attention, self.dropout, training=self.training)
@@ -181,7 +181,7 @@ class CEKT(nn.Module):
         
         # 确保设备一致性
         device = features.device
-        prev_h = torch.zeros(batch_size, self.hidden_dim, device=device, requires_grad=True)
+        prev_h = torch.zeros(batch_size, self.hidden_dim, device=device)
         
         # 将所有self变量移动到当前设备
         self.to(device)
@@ -251,7 +251,7 @@ class CEKT(nn.Module):
             kc_involvement_count_expanded = kc_involvement_count.unsqueeze(1).expand_as(kc_aggregated_info)
             kc_avg_info = torch.where(
                 kc_involvement_count_expanded > 0,
-                kc_aggregated_info / kc_involvement_count_expanded,
+                kc_aggregated_info / (kc_involvement_count_expanded + 1e-8),
                 torch.zeros_like(kc_aggregated_info)
             )
 
@@ -280,7 +280,7 @@ class CEKT(nn.Module):
             
             e_next_embedded = self.exercise_embedding[exercise_id_next]  # (batch_size, d_e)
             # 使用kc_ids_next与kc_avg_info相乘来获取KC嵌入
-            kc_next_embedded = torch.mm(kc_ids_next.float(), kc_avg_info)  # (batch_size, d_k)
+            kc_next_embedded = torch.mm(kc_ids_next.float(), enhanced_all_kc_embeddings)  # (batch_size, d_k)
             
             # --- 6. 预测 (OutputLayer) ---
             y_pred = self.output_layer(h_t, e_next_embedded, kc_next_embedded)

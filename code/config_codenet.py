@@ -3,7 +3,7 @@ class Config:
         # 训练参数
         self.learning_rate = 0.01
         self.epoch = 50
-        self.assignment = 'Java'
+        self.assignment = 'Python'
         self.batchSize = 512
         self.shuffle = True
 

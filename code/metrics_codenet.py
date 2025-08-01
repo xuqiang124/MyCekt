@@ -69,7 +69,6 @@ class KTLoss(nn.Module):
             # rmse = np.sqrt(mean_squared_error(y_true, y_pred))
             # print("RMSE:", rmse)
         except ValueError as e:
-            print(11111111)
             print(e)
             loss = torch.tensor(0.0, device=pred_answers.device, requires_grad=True)
             auc, acc, precision, recall, f1 = -1, -1, -1, -1, -1

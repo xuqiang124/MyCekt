@@ -16,7 +16,7 @@ from metrics_codenet import KTLoss
 from processing_codenet import load_dkt_dataset, KTDataset, pad_collate, preprocess_train_dataset
 from config_codenet import Config
 from early_stopping import EarlyStopping
-from train_demo import CEKT
+from train_demo_new import CEKT
 
 # Graph-based Knowledge Tracing: Modeling Student Proficiency Using Graph Neural Network.
 # For more information, please refer to https://dl.acm.org/doi/10.1145/3350546.3352513
@@ -159,16 +159,16 @@ if os.path.exists(saved_data_dir):
     test_dataset = load_dataset_from_pkl(os.path.join(saved_data_dir, 'test_dataset.pkl'))
     questions_embeddings = load_dataset_from_pkl(os.path.join(saved_data_dir, 'questions_embeddings_index_32.pkl'))
     # questions_id_2_index = load_dataset_from_pkl(os.path.join(saved_data_dir, 'new_original_id_2_index.pkl'))
-    kc_embeddings = load_dataset_from_pkl(os.path.join(saved_data_dir, 'kc_embeddings_index_32.pkl'))
-    kc_adj = np.load(os.path.join(saved_data_dir, 'adj_kc_codebert_codenet.npy'),allow_pickle=True)
+    # kc_embeddings = load_dataset_from_pkl(os.path.join(saved_data_dir, 'kc_embeddings_768.pkl'))
+    # kc_adj = np.load(os.path.join(saved_data_dir, 'adj_kc_codebert_codenet_Java.npy'),allow_pickle=True)
 
         # 将数据移到GPU（如果可用）
     if args.cuda:
         qt_one_hot_matrix = torch.tensor(qt_one_hot_matrix, dtype=torch.float32).cuda()
-        kc_adj = torch.tensor(kc_adj, dtype=torch.float32).cuda()
+        # kc_adj = torch.tensor(kc_adj, dtype=torch.float32).cuda()
     else:
         qt_one_hot_matrix = torch.tensor(qt_one_hot_matrix, dtype=torch.float32)
-        kc_adj = torch.tensor(kc_adj, dtype=torch.float32)
+        # kc_adj = torch.tensor(kc_adj, dtype=torch.float32)
 
     # 创建DataLoader
 
@@ -220,7 +220,7 @@ def train(epoch, best_val_loss):
         t1 = time.time()
         if args.cuda:
             features, questions, answers = features.cuda(non_blocking=True), questions.cuda(non_blocking=True), answers.cuda(non_blocking=True)
-        predictions = model(features, questions, kc_adj)
+        predictions = model(features, questions)
         loss, auc, acc, precision, recall, f1 = kt_loss(predictions, answers)
         loss.backward()
         torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
@@ -290,7 +290,7 @@ def train(epoch, best_val_loss):
         for batch_idx, (features, questions, answers) in enumerate(valid_loader):
             if args.cuda:
                 features, questions, answers = features.cuda(), questions.cuda(), answers.cuda()
-            pred_res = model(features, questions, kc_adj)
+            pred_res = model(features, questions)
             loss, auc, acc, precision, recall, f1 = kt_loss(pred_res, answers)
             loss_val.append(float(loss.cpu().detach().numpy()))
             if auc != -1 and acc != -1:
@@ -394,7 +394,7 @@ def test():
         for batch_idx, (features, questions, answers) in enumerate(test_loader):
             if args.cuda:
                 features, questions, answers = features.cuda(), questions.cuda(), answers.cuda()
-            pred_res = model(features, questions, kc_adj)
+            pred_res = model(features, questions)
             loss, auc, acc, precision, recall, f1 = kt_loss(pred_res, answers)
             loss_test.append(float(loss.cpu().detach().numpy()))
             if auc != -1 and acc != -1:

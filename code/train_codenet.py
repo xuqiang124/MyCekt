@@ -220,7 +220,7 @@ def train(epoch, best_val_loss):
         t1 = time.time()
         if args.cuda:
             features, questions, answers = features.cuda(non_blocking=True), questions.cuda(non_blocking=True), answers.cuda(non_blocking=True)
-        predictions = model(features, questions, kc_adj)
+        predictions = model(answers, questions, kc_adj)
         loss, auc, acc, precision, recall, f1 = kt_loss(predictions, answers)
         loss.backward()
         torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
@@ -290,7 +290,7 @@ def train(epoch, best_val_loss):
         for batch_idx, (features, questions, answers) in enumerate(valid_loader):
             if args.cuda:
                 features, questions, answers = features.cuda(), questions.cuda(), answers.cuda()
-            pred_res = model(features, questions, kc_adj)
+            pred_res = model(answers, questions, kc_adj)
             loss, auc, acc, precision, recall, f1 = kt_loss(pred_res, answers)
             loss_val.append(float(loss.cpu().detach().numpy()))
             if auc != -1 and acc != -1:
@@ -394,7 +394,7 @@ def test():
         for batch_idx, (features, questions, answers) in enumerate(test_loader):
             if args.cuda:
                 features, questions, answers = features.cuda(), questions.cuda(), answers.cuda()
-            pred_res = model(features, questions, kc_adj)
+            pred_res = model(answers, questions, kc_adj)
             loss, auc, acc, precision, recall, f1 = kt_loss(pred_res, answers)
             loss_test.append(float(loss.cpu().detach().numpy()))
             if auc != -1 and acc != -1:

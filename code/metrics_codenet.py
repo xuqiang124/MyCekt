@@ -35,8 +35,9 @@ class KTLoss(nn.Module):
             y_pred = pred_one[answer_mask]
 
             # 对y_true进行筛选：如果值大于1则赋值为1否则为0
-            y_true_binary = torch.where(y_true >= 1, torch.ones_like(y_true), torch.zeros_like(y_true))
+            y_true_binary = torch.where(y_true >= 1, 1.0, 0.0)
             
+            print(f"y_pred: {y_pred}")
             # 处理NaN和无穷大值 - 使用torch方法
             y_pred = torch.where(torch.isnan(y_pred), torch.tensor(0.0, device=y_pred.device, dtype=y_pred.dtype), y_pred)
             y_pred = torch.where(torch.isinf(y_pred) & (y_pred > 0), torch.tensor(1.0, device=y_pred.device, dtype=y_pred.dtype), y_pred)

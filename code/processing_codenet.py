@@ -17,6 +17,8 @@ transform = transforms.Compose([
     transforms.ToTensor(),
 ])
 
+np.random.seed(42)
+
 class KTDataset(Dataset):
     def __init__(self, features, questions, answers):
         super(KTDataset, self).__init__()

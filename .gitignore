@@ -1,4 +1,5 @@
 data/
-
+model/
+graphcodebert-base/
 *.DS_Store
 *.pyc

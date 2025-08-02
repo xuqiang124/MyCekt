@@ -16,7 +16,7 @@ from metrics_codenet import KTLoss
 from processing_codenet import load_dkt_dataset, KTDataset, pad_collate, preprocess_train_dataset
 from config_codenet import Config
 from early_stopping import EarlyStopping
-from train_demo import CEKT
+from train_demo_2 import CEKT
 
 # Graph-based Knowledge Tracing: Modeling Student Proficiency Using Graph Neural Network.
 # For more information, please refer to https://dl.acm.org/doi/10.1145/3350546.3352513
@@ -110,7 +110,7 @@ res_len = 1 if args.binary else args.result_type
 
 # Save model and meta-data. Always saves in a new sub-folder.
 log = None
-save_dir = args.save_dir
+save_dir = os.path.join(args.save_dir, config.assignment)
 if args.save_dir:
     exp_counter = 0
     now = datetime.datetime.now()
@@ -130,6 +130,11 @@ if args.save_dir:
 else:
     print("WARNING: No save_dir provided!" + "Testing (within this script) will throw an error.")
 
+# 直接加载已划分的数据集
+def load_dataset_from_pkl(file_path):
+    with open(file_path, 'rb') as f:
+        dataset = pickle.load(f)
+    return dataset
 
 # load dataset
 saved_data_dir = os.path.join(args.data_dir, config.assignment)
@@ -138,27 +143,18 @@ if os.path.exists(saved_data_dir):
     # 从pkl文件加载数据集
     print("从pkl文件加载数据集..."+saved_data_dir)
     
-    with open(os.path.join(saved_data_dir, 'dataset_info.pkl'), 'rb') as f:
-        dataset_info = pickle.load(f)
+    dataset_info = load_dataset_from_pkl(os.path.join(saved_data_dir, 'dataset_info.pkl'))
     
     qt_num = dataset_info['qt_num']
     concept_num = dataset_info['concept_num']
     qt_one_hot_matrix = dataset_info['one_hot_matrix']
     qt_difficult_list = dataset_info['qt_difficult_list']
     
-
-
-    # 直接加载已划分的数据集
-    def load_dataset_from_pkl(file_path):
-        with open(file_path, 'rb') as f:
-            dataset = pickle.load(f)
-        return dataset
     
     train_dataset = load_dataset_from_pkl(os.path.join(saved_data_dir, 'train_dataset.pkl'))
     val_dataset = load_dataset_from_pkl(os.path.join(saved_data_dir, 'val_dataset.pkl'))
     test_dataset = load_dataset_from_pkl(os.path.join(saved_data_dir, 'test_dataset.pkl'))
     questions_embeddings = load_dataset_from_pkl(os.path.join(saved_data_dir, 'questions_embeddings_index_32.pkl'))
-    # questions_id_2_index = load_dataset_from_pkl(os.path.join(saved_data_dir, 'new_original_id_2_index.pkl'))
     kc_embeddings = load_dataset_from_pkl(os.path.join(saved_data_dir, 'kc_embeddings_index_32.pkl'))
     kc_adj = np.load(os.path.join(saved_data_dir, 'adj_kc_codebert_codenet.npy'),allow_pickle=True)
 
@@ -188,7 +184,7 @@ if os.path.exists(saved_data_dir):
     print(f"测试集大小: {len(test_dataset)}")
 
 
-model = CEKT(qt_one_hot_matrix,questions_embeddings,config.d_k, config.d_e, config.d_r, config.d_h, config.d_k_enhanced, config.gat_alpha, config.gat_nheads, config.gat_dropout)
+model = CEKT(qt_one_hot_matrix,questions_embeddings,kc_embeddings, config.d_k, config.d_e, config.d_r, config.d_h, config.d_k_enhanced, config.gat_alpha, config.gat_nheads, config.gat_dropout)
 
 # 将模型移到GPU
 if args.cuda:
@@ -220,7 +216,7 @@ def train(epoch, best_val_loss):
         t1 = time.time()
         if args.cuda:
             features, questions, answers = features.cuda(non_blocking=True), questions.cuda(non_blocking=True), answers.cuda(non_blocking=True)
-        predictions = model(features, questions, kc_adj)
+        predictions = model(answers, questions, kc_adj)
         loss, auc, acc, precision, recall, f1 = kt_loss(predictions, answers)
         loss.backward()
         torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
@@ -290,7 +286,7 @@ def train(epoch, best_val_loss):
         for batch_idx, (features, questions, answers) in enumerate(valid_loader):
             if args.cuda:
                 features, questions, answers = features.cuda(), questions.cuda(), answers.cuda()
-            pred_res = model(features, questions, kc_adj)
+            pred_res = model(answers, questions, kc_adj)
             loss, auc, acc, precision, recall, f1 = kt_loss(pred_res, answers)
             loss_val.append(float(loss.cpu().detach().numpy()))
             if auc != -1 and acc != -1:
@@ -394,7 +390,7 @@ def test():
         for batch_idx, (features, questions, answers) in enumerate(test_loader):
             if args.cuda:
                 features, questions, answers = features.cuda(), questions.cuda(), answers.cuda()
-            pred_res = model(features, questions, kc_adj)
+            pred_res = model(answers, questions, kc_adj)
             loss, auc, acc, precision, recall, f1 = kt_loss(pred_res, answers)
             loss_test.append(float(loss.cpu().detach().numpy()))
             if auc != -1 and acc != -1:

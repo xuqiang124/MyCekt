@@ -16,7 +16,7 @@ from metrics_codenet import KTLoss
 from processing_codenet import load_dkt_dataset, KTDataset, pad_collate, preprocess_train_dataset
 from config_codenet import Config
 from early_stopping import EarlyStopping
-from train_demo_new import CEKT
+from train_demo_1 import CEKT
 
 # Graph-based Knowledge Tracing: Modeling Student Proficiency Using Graph Neural Network.
 # For more information, please refer to https://dl.acm.org/doi/10.1145/3350546.3352513
@@ -172,9 +172,9 @@ if os.path.exists(saved_data_dir):
 
     # 创建DataLoader
 
-    train_dataset = preprocess_train_dataset(train_dataset)
-    val_dataset = preprocess_train_dataset(val_dataset)
-    test_dataset = preprocess_train_dataset(test_dataset)
+    # train_dataset = preprocess_train_dataset(train_dataset)
+    # val_dataset = preprocess_train_dataset(val_dataset)
+    # test_dataset = preprocess_train_dataset(test_dataset)
 
     train_loader = DataLoader(train_dataset, batch_size=args.batch_size, 
                             shuffle=args.shuffle, collate_fn=pad_collate)

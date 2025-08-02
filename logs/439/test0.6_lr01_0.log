@@ -1,0 +1,2354 @@
+/Users/I764812/myCode/MyCekt/code/train_demo.py:130: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  embeddings_tensor = torch.tensor(embeddings, dtype=torch.long)
+=== GPU信息 ===
+PyTorch版本: 2.7.1
+CUDA可用: False
+CUDA不可用，将使用CPU训练
+==================================================
+使用CPU训练
+Namespace(no_cuda=False, seed=42, data_dir='../data', save_dir='../model', graph_save_dir='graphs', load_dir='', hid_dim=32, emb_dim=32, attn_dim=32, vae_encoder_dim=32, vae_decoder_dim=32, edge_types=2, dropout=0, bias=True, binary=True, result_type=12, temp=0.5, hard=False, no_factor=False, prior=False, var=1, epochs=50, batch_size=512, train_ratio=0.6, val_ratio=0.2, shuffle=True, lr=0.001, lr_decay=50, gamma=0.5, test=False, test_model_dir='logs/expDKT', weight_method='senet', amp=False, gpu_id=0, cuda=False, factor=True)
+从pkl文件加载数据集...../data/439
+从pkl文件加载数据集...../data/439
+训练集大小: 1489
+验证集大小: 577
+测试集大小: 517
+模型初始化完成
+start training!
+EarlyStopping: 监控 val_loss (最小值)，耐心值 15，最小变化阈值 0.001
+开始训练，最大epoch数: 50
+提前停止配置已启用，监控验证损失
+y_pred: tensor([0.8002, 0.7421, 0.7510,  ..., 0.7132, 0.7815, 0.7527],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13736
+正样本数量： 8198
+TP:  8198
+TN:  0
+FP:  13736
+FN:  0
+batch idx: 0, loss: 1.058784 auc: 0.4913, acc: 0.3738, precision: 0.3738, recall: 1.0000, f1: 0.5441, time: 0.128s
+y_pred: tensor([0.1738, 0.1455, 0.1356,  ..., 0.1670, 0.1928, 0.1968],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13818
+正样本数量： 7857
+TP:  0
+TN:  13818
+FP:  0
+FN:  7857
+batch idx: 1, loss: 0.762826 auc: 0.6110, acc: 0.6375, precision: 0.0000, recall: 0.0000, f1: 0.0000, time: 0.085s
+y_pred: tensor([0.2277, 0.2816, 0.2743,  ..., 0.2732, 0.2768, 0.2728],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12857
+正样本数量： 7464
+TP:  0
+TN:  12857
+FP:  0
+FN:  7464
+batch idx: 2, loss: 0.660379 auc: 0.6662, acc: 0.6327, precision: 0.0000, recall: 0.0000, f1: 0.0000, time: 0.082s
+First attempt - auc_train: 0.4913436048 acc_train: 0.3737576365
+y_pred: tensor([0.5264, 0.5442, 0.5513,  ..., 0.5419, 0.5561, 0.5649])
+负样本数量： 15607
+正样本数量： 7016
+TP:  53
+TN:  15607
+FP:  0
+FN:  6963
+y_pred: tensor([0.3933, 0.5059, 0.5467,  ..., 0.5744, 0.5478, 0.4225])
+负样本数量： 1959
+正样本数量： 913
+TP:  6
+TN:  1959
+FP:  0
+FN:  907
+First attempt - auc_val: 0.7373471114 acc_val: 0.6922158865
+Epoch: 0000 loss_train: 0.8273298343 auc_train: 0.5895359606 acc_train: 0.5479871761 precision_train: 0.1245858788 recall_train: 0.3333333333 f1_train: 0.1813797071 loss_val: 0.6544781923 auc_val: 0.7324016129 acc_val: 0.6882040435 precision_val: 1.0000000000 recall_val: 0.0070629517 f1_val: 0.0140263601 time: 0.3923s
+Best model so far, saving...
+已保存最佳模型到 ../model/expCEKT2025-08-02 12-58-23//checkpoints/best_model.pt
+Epoch 0000: val_loss 改善从 0.654478 到 0.654478
+y_pred: tensor([0.5351, 0.5146, 0.5550,  ..., 0.6004, 0.6095, 0.5618],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14358
+正样本数量： 7721
+TP:  241
+TN:  14313
+FP:  45
+FN:  7480
+batch idx: 0, loss: 0.650375 auc: 0.7279, acc: 0.6592, precision: 0.8427, recall: 0.0312, f1: 0.0602, time: 0.083s
+y_pred: tensor([0.5506, 0.5683, 0.5755,  ..., 0.5777, 0.4038, 0.3823],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13906
+正样本数量： 8090
+TP:  713
+TN:  13582
+FP:  324
+FN:  7377
+batch idx: 1, loss: 0.637724 auc: 0.7388, acc: 0.6499, precision: 0.6876, recall: 0.0881, f1: 0.1562, time: 0.088s
+y_pred: tensor([0.4509, 0.4945, 0.4821,  ..., 0.3185, 0.4646, 0.3293],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12147
+正样本数量： 7708
+TP:  0
+TN:  12147
+FP:  0
+FN:  7708
+batch idx: 2, loss: 0.600605 auc: 0.7528, acc: 0.6118, precision: 0.0000, recall: 0.0000, f1: 0.0000, time: 0.084s
+First attempt - auc_train: 0.7279404698 acc_train: 0.6591784048
+y_pred: tensor([0.3273, 0.1858, 0.2558,  ..., 0.4910, 0.4839, 0.4671])
+负样本数量： 15529
+正样本数量： 6989
+TP:  0
+TN:  15529
+FP:  0
+FN:  6989
+y_pred: tensor([0.1949, 0.1584, 0.1629,  ..., 0.2993, 0.3581, 0.3966])
+负样本数量： 2037
+正样本数量： 940
+TP:  0
+TN:  2037
+FP:  0
+FN:  940
+First attempt - auc_val: 0.7700199123 acc_val: 0.6896260769
+Epoch: 0001 loss_train: 0.6295678417 auc_train: 0.7398654075 acc_train: 0.6402849128 precision_train: 0.5100725376 recall_train: 0.0397823572 f1_train: 0.0721456852 loss_val: 0.5414105952 auc_val: 0.7691106100 acc_val: 0.6869359810 precision_val: 0.0000000000 recall_val: 0.0000000000 f1_val: 0.0000000000 time: 0.3526s
+Best model so far, saving...
+已保存最佳模型到 ../model/expCEKT2025-08-02 12-58-23//checkpoints/best_model.pt
+Epoch 0001: val_loss 改善从 0.541411 到 0.541411
+y_pred: tensor([0.3882, 0.3741, 0.1896,  ..., 0.4840, 0.4292, 0.4640],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13926
+正样本数量： 7787
+TP:  0
+TN:  13926
+FP:  0
+FN:  7787
+batch idx: 0, loss: 0.572641 auc: 0.7678, acc: 0.6414, precision: 0.0000, recall: 0.0000, f1: 0.0000, time: 0.085s
+y_pred: tensor([0.1547, 0.1244, 0.1654,  ..., 0.3799, 0.3861, 0.4488],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14057
+正样本数量： 8224
+TP:  11
+TN:  14054
+FP:  3
+FN:  8213
+batch idx: 1, loss: 0.571124 auc: 0.7751, acc: 0.6313, precision: 0.7857, recall: 0.0013, f1: 0.0027, time: 0.087s
+y_pred: tensor([0.1344, 0.1219, 0.0940,  ..., 0.4860, 0.5321, 0.5461],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12428
+正样本数量： 7508
+TP:  784
+TN:  12275
+FP:  153
+FN:  6724
+batch idx: 2, loss: 0.551625 auc: 0.7871, acc: 0.6550, precision: 0.8367, recall: 0.1044, f1: 0.1857, time: 0.084s
+First attempt - auc_train: 0.7678007251 acc_train: 0.6413669230
+y_pred: tensor([0.1515, 0.1206, 0.1094,  ..., 0.6253, 0.6379, 0.5850])
+负样本数量： 15646
+正样本数量： 7024
+TP:  3500
+TN:  13700
+FP:  1946
+FN:  3524
+y_pred: tensor([0.4254, 0.5060, 0.5154,  ..., 0.2381, 0.3946, 0.4464])
+负样本数量： 1920
+正样本数量： 905
+TP:  468
+TN:  1679
+FP:  241
+FN:  437
+First attempt - auc_val: 0.7774809881 acc_val: 0.7587119541
+Epoch: 0002 loss_train: 0.5651298960 auc_train: 0.7766718386 acc_train: 0.6425561335 precision_train: 0.5408090664 recall_train: 0.0352531662 f1_train: 0.0627808488 loss_val: 0.5235491395 auc_val: 0.7812885488 acc_val: 0.7593559771 precision_val: 0.6513790740 recall_val: 0.5077093218 f1_val: 0.5706364420 time: 0.3545s
+Best model so far, saving...
+已保存最佳模型到 ../model/expCEKT2025-08-02 12-58-23//checkpoints/best_model.pt
+Epoch 0002: val_loss 改善从 0.523549 到 0.523549
+y_pred: tensor([0.1360, 0.1077, 0.0934,  ..., 0.3855, 0.4930, 0.5888],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14118
+正样本数量： 8258
+TP:  4268
+TN:  12727
+FP:  1391
+FN:  3990
+batch idx: 0, loss: 0.540165 auc: 0.7866, acc: 0.7595, precision: 0.7542, recall: 0.5168, f1: 0.6134, time: 0.087s
+y_pred: tensor([0.1590, 0.1262, 0.1106,  ..., 0.3421, 0.3908, 0.4548],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13812
+正样本数量： 7883
+TP:  4281
+TN:  12056
+FP:  1756
+FN:  3602
+batch idx: 1, loss: 0.538164 auc: 0.7853, acc: 0.7530, precision: 0.7091, recall: 0.5431, f1: 0.6151, time: 0.089s
+y_pred: tensor([0.3887, 0.1760, 0.1191,  ..., 0.7852, 0.7432, 0.7662],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12481
+正样本数量： 7378
+TP:  3682
+TN:  11393
+FP:  1088
+FN:  3696
+batch idx: 2, loss: 0.526827 auc: 0.7894, acc: 0.7591, precision: 0.7719, recall: 0.4991, f1: 0.6062, time: 0.088s
+First attempt - auc_train: 0.7865669914 acc_train: 0.7595191276
+y_pred: tensor([0.3884, 0.4388, 0.5002,  ..., 0.0929, 0.0929, 0.0924])
+负样本数量： 15605
+正样本数量： 7037
+TP:  2626
+TN:  14580
+FP:  1025
+FN:  4411
+y_pred: tensor([0.4643, 0.5371, 0.5799,  ..., 0.7078, 0.7167, 0.7419])
+负样本数量： 1961
+正样本数量： 892
+TP:  349
+TN:  1867
+FP:  94
+FN:  543
+First attempt - auc_val: 0.7710693653 acc_val: 0.7599152018
+Epoch: 0003 loss_train: 0.5350520015 auc_train: 0.7871094818 acc_train: 0.7572171489 precision_train: 0.7450772204 recall_train: 0.5196502521 f1_train: 0.6115423682 loss_val: 0.4935245812 auc_val: 0.7914347393 acc_val: 0.7683207275 precision_val: 0.7535326912 recall_val: 0.3822129952 f1_val: 0.5071193288 time: 0.3651s
+Best model so far, saving...
+已保存最佳模型到 ../model/expCEKT2025-08-02 12-58-23//checkpoints/best_model.pt
+Epoch 0003: val_loss 改善从 0.493525 到 0.493525
+y_pred: tensor([0.3913, 0.1888, 0.1359,  ..., 0.7668, 0.7734, 0.7732],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13542
+正样本数量： 8101
+TP:  3110
+TN:  13069
+FP:  473
+FN:  4991
+batch idx: 0, loss: 0.525107 auc: 0.7921, acc: 0.7475, precision: 0.8680, recall: 0.3839, f1: 0.5324, time: 0.087s
+y_pred: tensor([0.5159, 0.5034, 0.2307,  ..., 0.8181, 0.8314, 0.8555],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14029
+正样本数量： 8022
+TP:  3479
+TN:  13131
+FP:  898
+FN:  4543
+batch idx: 1, loss: 0.525611 auc: 0.7802, acc: 0.7533, precision: 0.7948, recall: 0.4337, f1: 0.5612, time: 0.091s
+y_pred: tensor([0.2252, 0.3365, 0.3883,  ..., 0.7394, 0.7710, 0.7897],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12840
+正样本数量： 7396
+TP:  3506
+TN:  11892
+FP:  948
+FN:  3890
+batch idx: 2, loss: 0.518387 auc: 0.7878, acc: 0.7609, precision: 0.7872, recall: 0.4740, f1: 0.5917, time: 0.086s
+First attempt - auc_train: 0.7920843119 acc_train: 0.7475396202
+y_pred: tensor([0.2074, 0.1538, 0.1349,  ..., 0.1953, 0.2810, 0.1759])
+负样本数量： 15647
+正样本数量： 7004
+TP:  3427
+TN:  13818
+FP:  1829
+FN:  3577
+y_pred: tensor([0.2032, 0.1561, 0.1351,  ..., 0.2182, 0.1609, 0.2399])
+负样本数量： 1919
+正样本数量： 925
+TP:  514
+TN:  1624
+FP:  295
+FN:  411
+First attempt - auc_val: 0.7771222687 acc_val: 0.7613350404
+Epoch: 0004 loss_train: 0.5230349501 auc_train: 0.7867117925 acc_train: 0.7539048572 precision_train: 0.8166606590 recall_train: 0.4305418723 f1_train: 0.5617520601 loss_val: 0.5286155343 auc_val: 0.7833468476 acc_val: 0.7565465638 precision_val: 0.6436845148 recall_val: 0.5224837545 f1_val: 0.5759513689 time: 0.3706s
+Epoch 0004: val_loss 没有改善 0.528616，最佳值 0.493525，等待 1/15
+y_pred: tensor([0.5345, 0.6571, 0.3135,  ..., 0.7846, 0.8038, 0.8565],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14118
+正样本数量： 7960
+TP:  3996
+TN:  12820
+FP:  1298
+FN:  3964
+batch idx: 0, loss: 0.514512 auc: 0.7919, acc: 0.7617, precision: 0.7548, recall: 0.5020, f1: 0.6030, time: 0.085s
+y_pred: tensor([0.5611, 0.2422, 0.1925,  ..., 0.5855, 0.6370, 0.6674],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13891
+正样本数量： 8182
+TP:  4002
+TN:  12758
+FP:  1133
+FN:  4180
+batch idx: 1, loss: 0.515174 auc: 0.7921, acc: 0.7593, precision: 0.7794, recall: 0.4891, f1: 0.6010, time: 0.087s
+y_pred: tensor([0.5080, 0.6237, 0.6048,  ..., 0.3258, 0.3838, 0.4696],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12402
+正样本数量： 7377
+TP:  2965
+TN:  11820
+FP:  582
+FN:  4412
+batch idx: 2, loss: 0.524276 auc: 0.7861, acc: 0.7475, precision: 0.8359, recall: 0.4019, f1: 0.5428, time: 0.085s
+First attempt - auc_train: 0.7919470653 acc_train: 0.7616631941
+y_pred: tensor([0.5642, 0.6241, 0.2119,  ..., 0.1487, 0.2220, 0.2683])
+负样本数量： 15722
+正样本数量： 7027
+TP:  3148
+TN:  14229
+FP:  1493
+FN:  3879
+y_pred: tensor([0.1730, 0.1268, 0.1075,  ..., 0.8420, 0.8731, 0.8718])
+负样本数量： 1844
+正样本数量： 902
+TP:  412
+TN:  1716
+FP:  128
+FN:  490
+First attempt - auc_val: 0.7818691301 acc_val: 0.7638577520
+Epoch: 0005 loss_train: 0.5179873109 auc_train: 0.7900591709 acc_train: 0.7561572901 precision_train: 0.7900306007 recall_train: 0.4643524720 f1_train: 0.5822884989 loss_val: 0.4991134703 auc_val: 0.7903862836 acc_val: 0.7694015635 precision_val: 0.7206325265 recall_val: 0.4523745439 f1_val: 0.5555120231 time: 0.3566s
+Epoch 0005: val_loss 没有改善 0.499113，最佳值 0.493525，等待 2/15
+y_pred: tensor([0.1742, 0.1210, 0.1054,  ..., 0.3014, 0.3168, 0.3667],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14110
+正样本数量： 7849
+TP:  3561
+TN:  13172
+FP:  938
+FN:  4288
+batch idx: 0, loss: 0.511680 auc: 0.7884, acc: 0.7620, precision: 0.7915, recall: 0.4537, f1: 0.5768, time: 0.084s
+y_pred: tensor([0.1775, 0.1218, 0.0956,  ..., 0.7598, 0.7979, 0.8320],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13888
+正样本数量： 7926
+TP:  4152
+TN:  12636
+FP:  1252
+FN:  3774
+batch idx: 1, loss: 0.502294 auc: 0.8012, acc: 0.7696, precision: 0.7683, recall: 0.5238, f1: 0.6230, time: 0.088s
+y_pred: tensor([0.4815, 0.4901, 0.5810,  ..., 0.8838, 0.8867, 0.9037],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12413
+正样本数量： 7744
+TP:  3918
+TN:  11501
+FP:  912
+FN:  3826
+batch idx: 2, loss: 0.506729 auc: 0.8029, acc: 0.7649, precision: 0.8112, recall: 0.5059, f1: 0.6232, time: 0.087s
+First attempt - auc_train: 0.7884025727 acc_train: 0.7620110205
+y_pred: tensor([0.4469, 0.4889, 0.5244,  ..., 0.8964, 0.8880, 0.8964])
+负样本数量： 15653
+正样本数量： 7006
+TP:  3261
+TN:  14313
+FP:  1340
+FN:  3745
+y_pred: tensor([0.1442, 0.1075, 0.0954,  ..., 0.6251, 0.6866, 0.7404])
+负样本数量： 1913
+正样本数量： 923
+TP:  401
+TN:  1745
+FP:  168
+FN:  522
+First attempt - auc_val: 0.7929332423 acc_val: 0.7755858599
+Epoch: 0006 loss_train: 0.5069008072 auc_train: 0.7974799086 acc_train: 0.7655179024 precision_train: 0.7903363705 recall_train: 0.4944913407 f1_train: 0.6076400055 loss_val: 0.5020750910 auc_val: 0.7885238178 acc_val: 0.7661427184 precision_val: 0.7067520662 recall_val: 0.4499555249 f1_val: 0.5497179062 time: 0.3597s
+Epoch 0006: val_loss 没有改善 0.502075，最佳值 0.493525，等待 3/15
+y_pred: tensor([0.1506, 0.1101, 0.0895,  ..., 0.8797, 0.9017, 0.8712],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13844
+正样本数量： 8037
+TP:  3838
+TN:  13032
+FP:  812
+FN:  4199
+batch idx: 0, loss: 0.504863 auc: 0.7952, acc: 0.7710, precision: 0.8254, recall: 0.4775, f1: 0.6050, time: 0.086s
+y_pred: tensor([0.4385, 0.5122, 0.5275,  ..., 0.9193, 0.9176, 0.9119],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13841
+正样本数量： 8105
+TP:  4020
+TN:  12989
+FP:  852
+FN:  4085
+batch idx: 1, loss: 0.494151 auc: 0.8078, acc: 0.7750, precision: 0.8251, recall: 0.4960, f1: 0.6196, time: 0.096s
+y_pred: tensor([0.4647, 0.5799, 0.5849,  ..., 0.8738, 0.8537, 0.8795],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12726
+正样本数量： 7377
+TP:  3664
+TN:  11883
+FP:  843
+FN:  3713
+batch idx: 2, loss: 0.498421 auc: 0.8024, acc: 0.7734, precision: 0.8130, recall: 0.4967, f1: 0.6166, time: 0.087s
+First attempt - auc_train: 0.7952386323 acc_train: 0.7709885289
+y_pred: tensor([0.4096, 0.1620, 0.1143,  ..., 0.8968, 0.8846, 0.9113])
+负样本数量： 15511
+正样本数量： 7070
+TP:  3389
+TN:  14327
+FP:  1184
+FN:  3681
+y_pred: tensor([0.4879, 0.5366, 0.5663,  ..., 0.1338, 0.1320, 0.1484])
+负样本数量： 2055
+正样本数量： 859
+TP:  385
+TN:  1936
+FP:  119
+FN:  474
+First attempt - auc_val: 0.8010441511 acc_val: 0.7845533856
+Epoch: 0007 loss_train: 0.4991448820 auc_train: 0.8018103289 acc_train: 0.7731314731 precision_train: 0.8211523728 recall_train: 0.4900701225 f1_train: 0.6137379489 loss_val: 0.4805791527 auc_val: 0.7951597887 acc_val: 0.7905265212 precision_val: 0.7524889448 recall_val: 0.4637724699 f1_val: 0.5735413335 time: 0.3677s
+Best model so far, saving...
+已保存最佳模型到 ../model/expCEKT2025-08-02 12-58-23//checkpoints/best_model.pt
+Epoch 0007: val_loss 改善从 0.480579 到 0.480579
+y_pred: tensor([0.5570, 0.5891, 0.6516,  ..., 0.8645, 0.8729, 0.8858],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13786
+正样本数量： 7780
+TP:  3791
+TN:  13041
+FP:  745
+FN:  3989
+batch idx: 0, loss: 0.493708 auc: 0.8006, acc: 0.7805, precision: 0.8358, recall: 0.4873, f1: 0.6156, time: 0.088s
+y_pred: tensor([0.1491, 0.1109, 0.0999,  ..., 0.7785, 0.7840, 0.8323],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14019
+正样本数量： 8067
+TP:  3905
+TN:  13396
+FP:  623
+FN:  4162
+batch idx: 1, loss: 0.489257 auc: 0.8065, acc: 0.7833, precision: 0.8624, recall: 0.4841, f1: 0.6201, time: 0.090s
+y_pred: tensor([0.3978, 0.1673, 0.2151,  ..., 0.3061, 0.2870, 0.2959],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12606
+正样本数量： 7672
+TP:  3709
+TN:  12149
+FP:  457
+FN:  3963
+batch idx: 2, loss: 0.484561 auc: 0.8166, acc: 0.7820, precision: 0.8903, recall: 0.4834, f1: 0.6266, time: 0.086s
+First attempt - auc_train: 0.8005623976 acc_train: 0.7804878049
+y_pred: tensor([0.3686, 0.3927, 0.5209,  ..., 0.9193, 0.9062, 0.9070])
+负样本数量： 15549
+正样本数量： 7008
+TP:  3767
+TN:  14187
+FP:  1362
+FN:  3241
+y_pred: tensor([0.4979, 0.5392, 0.1969,  ..., 0.9090, 0.8869, 0.9135])
+负样本数量： 2017
+正样本数量： 921
+TP:  519
+TN:  1773
+FP:  244
+FN:  402
+First attempt - auc_val: 0.8096490187 acc_val: 0.7959391763
+Epoch: 0008 loss_train: 0.4891753594 auc_train: 0.8079025022 acc_train: 0.7819548358 precision_train: 0.8628241622 recall_train: 0.4849307562 f1_train: 0.6207784702 loss_val: 0.4994113147 auc_val: 0.8019765401 acc_val: 0.7880308543 precision_val: 0.7073304293 recall_val: 0.5505232271 f1_val: 0.6185680132 time: 0.3605s
+Epoch 0008: val_loss 没有改善 0.499411，最佳值 0.480579，等待 1/15
+y_pred: tensor([0.1562, 0.1211, 0.1043,  ..., 0.8989, 0.9032, 0.9233],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14476
+正样本数量： 7959
+TP:  4520
+TN:  13037
+FP:  1439
+FN:  3439
+batch idx: 0, loss: 0.497487 auc: 0.8064, acc: 0.7826, precision: 0.7585, recall: 0.5679, f1: 0.6495, time: 0.087s
+y_pred: tensor([0.1486, 0.1078, 0.0995,  ..., 0.8217, 0.8474, 0.8622],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13335
+正样本数量： 8312
+TP:  3255
+TN:  13153
+FP:  182
+FN:  5057
+batch idx: 1, loss: 0.501961 auc: 0.8156, acc: 0.7580, precision: 0.9470, recall: 0.3916, f1: 0.5541, time: 0.088s
+y_pred: tensor([0.4799, 0.3917, 0.1635,  ..., 0.3191, 0.4532, 0.1941],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12600
+正样本数量： 7248
+TP:  3606
+TN:  12036
+FP:  564
+FN:  3642
+batch idx: 2, loss: 0.480721 auc: 0.8115, acc: 0.7881, precision: 0.8647, recall: 0.4975, f1: 0.6316, time: 0.090s
+First attempt - auc_train: 0.8064367150 acc_train: 0.7825718743
+y_pred: tensor([0.4901, 0.5314, 0.4378,  ..., 0.9136, 0.9141, 0.9139])
+负样本数量： 15472
+正样本数量： 6972
+TP:  3844
+TN:  14022
+FP:  1450
+FN:  3128
+y_pred: tensor([0.3384, 0.1519, 0.1125,  ..., 0.9319, 0.9319, 0.8989])
+负样本数量： 2094
+正样本数量： 957
+TP:  569
+TN:  1808
+FP:  286
+FN:  388
+First attempt - auc_val: 0.8133908065 acc_val: 0.7960256639
+Epoch: 0009 loss_train: 0.4933894674 auc_train: 0.8111691814 acc_train: 0.7762138917 precision_train: 0.8567705247 recall_train: 0.4856765334 f1_train: 0.6117475268 loss_val: 0.5058715940 auc_val: 0.8045299637 acc_val: 0.7875572436 precision_val: 0.6958010503 recall_val: 0.5729573017 f1_val: 0.6274042571 time: 0.3712s
+Epoch 0009: val_loss 没有改善 0.505872，最佳值 0.480579，等待 2/15
+y_pred: tensor([0.3617, 0.3897, 0.3715,  ..., 0.4991, 0.5779, 0.5849],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14103
+正样本数量： 8171
+TP:  4760
+TN:  12703
+FP:  1400
+FN:  3411
+batch idx: 0, loss: 0.492766 auc: 0.8117, acc: 0.7840, precision: 0.7727, recall: 0.5825, f1: 0.6643, time: 0.091s
+y_pred: tensor([0.3011, 0.1549, 0.1223,  ..., 0.9199, 0.9095, 0.9040],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13723
+正样本数量： 8204
+TP:  4060
+TN:  13188
+FP:  535
+FN:  4144
+batch idx: 1, loss: 0.478442 auc: 0.8157, acc: 0.7866, precision: 0.8836, recall: 0.4949, f1: 0.6344, time: 0.089s
+y_pred: tensor([0.3822, 0.3753, 0.1638,  ..., 0.8891, 0.8922, 0.8912],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12585
+正样本数量： 7144
+TP:  3009
+TN:  12282
+FP:  303
+FN:  4135
+batch idx: 2, loss: 0.487032 auc: 0.8111, acc: 0.7751, precision: 0.9085, recall: 0.4212, f1: 0.5756, time: 0.090s
+First attempt - auc_train: 0.8116613134 acc_train: 0.7840082608
+y_pred: tensor([0.2853, 0.2989, 0.2996,  ..., 0.1589, 0.1571, 0.2687])
+负样本数量： 15669
+正样本数量： 7070
+TP:  3180
+TN:  14992
+FP:  677
+FN:  3890
+y_pred: tensor([0.4021, 0.4030, 0.3932,  ..., 0.8863, 0.8812, 0.9076])
+负样本数量： 1897
+正样本数量： 859
+TP:  413
+TN:  1816
+FP:  81
+FN:  446
+First attempt - auc_val: 0.8119195525 acc_val: 0.7991556357
+Epoch: 0010 loss_train: 0.4860800803 auc_train: 0.8128203374 acc_train: 0.7818901100 precision_train: 0.8549369541 recall_train: 0.4995403970 f1_train: 0.6247578191 loss_val: 0.4534670711 auc_val: 0.8162617481 acc_val: 0.8039682387 precision_val: 0.8302536846 recall_val: 0.4652897270 f1_val: 0.5962698364 time: 0.3729s
+Best model so far, saving...
+已保存最佳模型到 ../model/expCEKT2025-08-02 12-58-23//checkpoints/best_model.pt
+Epoch 0010: val_loss 改善从 0.453467 到 0.453467
+y_pred: tensor([0.2902, 0.3638, 0.2969,  ..., 0.5567, 0.6135, 0.6934],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13880
+正样本数量： 8125
+TP:  3944
+TN:  13426
+FP:  454
+FN:  4181
+batch idx: 0, loss: 0.475076 auc: 0.8154, acc: 0.7894, precision: 0.8968, recall: 0.4854, f1: 0.6299, time: 0.088s
+y_pred: tensor([0.1332, 0.1953, 0.1129,  ..., 0.9051, 0.9346, 0.9373],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13914
+正样本数量： 7899
+TP:  4490
+TN:  12689
+FP:  1225
+FN:  3409
+batch idx: 1, loss: 0.488309 auc: 0.8103, acc: 0.7876, precision: 0.7857, recall: 0.5684, f1: 0.6596, time: 0.088s
+y_pred: tensor([0.1263, 0.1016, 0.0911,  ..., 0.9207, 0.9319, 0.9089],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12617
+正样本数量： 7495
+TP:  3867
+TN:  12101
+FP:  516
+FN:  3628
+batch idx: 2, loss: 0.470627 auc: 0.8186, acc: 0.7940, precision: 0.8823, recall: 0.5159, f1: 0.6511, time: 0.090s
+First attempt - auc_train: 0.8153709998 acc_train: 0.7893660532
+y_pred: tensor([0.4442, 0.4714, 0.4970,  ..., 0.1852, 0.2974, 0.3266])
+负样本数量： 15575
+正样本数量： 7074
+TP:  2977
+TN:  15125
+FP:  450
+FN:  4097
+y_pred: tensor([0.4479, 0.1731, 0.2384,  ..., 0.3426, 0.1746, 0.1702])
+负样本数量： 1991
+正样本数量： 855
+TP:  404
+TN:  1912
+FP:  79
+FN:  451
+First attempt - auc_val: 0.8139541631 acc_val: 0.7992405846
+Epoch: 0011 loss_train: 0.4780039688 auc_train: 0.8147307659 acc_train: 0.7902925966 precision_train: 0.8548984898 recall_train: 0.5232619101 f1_train: 0.6468719461 loss_val: 0.4508387595 auc_val: 0.8136697717 acc_val: 0.8065071510 precision_val: 0.8525643698 recall_val: 0.4466757436 f1_val: 0.5854400086 time: 0.3686s
+Best model so far, saving...
+已保存最佳模型到 ../model/expCEKT2025-08-02 12-58-23//checkpoints/best_model.pt
+Epoch 0011: val_loss 改善从 0.450839 到 0.450839
+y_pred: tensor([0.1617, 0.1314, 0.2054,  ..., 0.9007, 0.8895, 0.9243],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13912
+正样本数量： 8089
+TP:  3691
+TN:  13582
+FP:  330
+FN:  4398
+batch idx: 0, loss: 0.476542 auc: 0.8118, acc: 0.7851, precision: 0.9179, recall: 0.4563, f1: 0.6096, time: 0.090s
+y_pred: tensor([0.1195, 0.1609, 0.1934,  ..., 0.1841, 0.1647, 0.1698],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14263
+正样本数量： 8053
+TP:  4066
+TN:  13767
+FP:  496
+FN:  3987
+batch idx: 1, loss: 0.463365 auc: 0.8175, acc: 0.7991, precision: 0.8913, recall: 0.5049, f1: 0.6446, time: 0.095s
+y_pred: tensor([0.3025, 0.3193, 0.3638,  ..., 0.9338, 0.9348, 0.9371],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12236
+正样本数量： 7377
+TP:  3807
+TN:  11679
+FP:  557
+FN:  3570
+batch idx: 2, loss: 0.471202 auc: 0.8188, acc: 0.7896, precision: 0.8724, recall: 0.5161, f1: 0.6485, time: 0.088s
+First attempt - auc_train: 0.8117703327 acc_train: 0.7851006772
+y_pred: tensor([0.4305, 0.4605, 0.4899,  ..., 0.9381, 0.9321, 0.9514])
+负样本数量： 15459
+正样本数量： 7089
+TP:  3593
+TN:  14620
+FP:  839
+FN:  3496
+y_pred: tensor([0.1574, 0.1385, 0.1251,  ..., 0.3085, 0.2784, 0.2727])
+负样本数量： 2107
+正样本数量： 840
+TP:  429
+TN:  1978
+FP:  129
+FN:  411
+First attempt - auc_val: 0.8158951270 acc_val: 0.8077434806
+Epoch: 0012 loss_train: 0.4703699350 auc_train: 0.8160317417 acc_train: 0.7912639208 precision_train: 0.8938571407 recall_train: 0.4924223740 f1_train: 0.6342349969 loss_val: 0.4572175294 auc_val: 0.8142513807 acc_val: 0.8122531451 precision_val: 0.7897560751 recall_val: 0.5087779356 f1_val: 0.6187322423 time: 0.3715s
+Epoch 0012: val_loss 没有改善 0.457218，最佳值 0.450839，等待 1/15
+y_pred: tensor([0.5007, 0.1743, 0.2125,  ..., 0.9322, 0.9404, 0.9435],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13609
+正样本数量： 7579
+TP:  3902
+TN:  12890
+FP:  719
+FN:  3677
+batch idx: 0, loss: 0.473271 auc: 0.8125, acc: 0.7925, precision: 0.8444, recall: 0.5148, f1: 0.6397, time: 0.085s
+y_pred: tensor([0.2902, 0.1547, 0.1146,  ..., 0.8996, 0.8920, 0.8877],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14175
+正样本数量： 8329
+TP:  4202
+TN:  13717
+FP:  458
+FN:  4127
+batch idx: 1, loss: 0.462350 auc: 0.8195, acc: 0.7963, precision: 0.9017, recall: 0.5045, f1: 0.6470, time: 0.089s
+y_pred: tensor([0.3384, 0.3438, 0.3172,  ..., 0.9194, 0.9430, 0.9335],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12627
+正样本数量： 7611
+TP:  3831
+TN:  12251
+FP:  376
+FN:  3780
+batch idx: 2, loss: 0.463651 auc: 0.8194, acc: 0.7946, precision: 0.9106, recall: 0.5034, f1: 0.6483, time: 0.086s
+First attempt - auc_train: 0.8125048870 acc_train: 0.7925240702
+y_pred: tensor([0.4882, 0.5189, 0.3822,  ..., 0.9264, 0.9574, 0.9586])
+负样本数量： 15489
+正样本数量： 7073
+TP:  3475
+TN:  14760
+FP:  729
+FN:  3598
+y_pred: tensor([0.1536, 0.1246, 0.1214,  ..., 0.9314, 0.9430, 0.9276])
+负样本数量： 2077
+正样本数量： 856
+TP:  426
+TN:  1998
+FP:  79
+FN:  430
+First attempt - auc_val: 0.8156379378 acc_val: 0.8082173566
+Epoch: 0013 loss_train: 0.4664241672 auc_train: 0.8171335460 acc_train: 0.7944754176 precision_train: 0.8855826198 recall_train: 0.5075654673 f1_train: 0.6450047300 loss_val: 0.4430643022 auc_val: 0.8202751253 acc_val: 0.8173374543 precision_val: 0.8350790384 recall_val: 0.4944842570 f1_val: 0.6211544738 time: 0.3659s
+Best model so far, saving...
+已保存最佳模型到 ../model/expCEKT2025-08-02 12-58-23//checkpoints/best_model.pt
+Epoch 0013: val_loss 改善从 0.443064 到 0.443064
+y_pred: tensor([0.1180, 0.0986, 0.0857,  ..., 0.9572, 0.9484, 0.9464],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13693
+正样本数量： 8043
+TP:  4337
+TN:  13099
+FP:  594
+FN:  3706
+batch idx: 0, loss: 0.460531 auc: 0.8194, acc: 0.8022, precision: 0.8795, recall: 0.5392, f1: 0.6686, time: 0.093s
+y_pred: tensor([0.1191, 0.0930, 0.0892,  ..., 0.3926, 0.4429, 0.4951],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13861
+正样本数量： 8207
+TP:  4262
+TN:  13373
+FP:  488
+FN:  3945
+batch idx: 1, loss: 0.458273 auc: 0.8217, acc: 0.7991, precision: 0.8973, recall: 0.5193, f1: 0.6579, time: 0.095s
+y_pred: tensor([0.4021, 0.1579, 0.1283,  ..., 0.9466, 0.9303, 0.9442],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12857
+正样本数量： 7269
+TP:  3541
+TN:  12390
+FP:  467
+FN:  3728
+batch idx: 2, loss: 0.468602 auc: 0.8134, acc: 0.7916, precision: 0.8835, recall: 0.4871, f1: 0.6280, time: 0.087s
+First attempt - auc_train: 0.8193705946 acc_train: 0.8021715127
+y_pred: tensor([0.1204, 0.1028, 0.0985,  ..., 0.2839, 0.2795, 0.2751])
+负样本数量： 15581
+正样本数量： 7030
+TP:  3257
+TN:  15069
+FP:  512
+FN:  3773
+y_pred: tensor([0.3000, 0.1356, 0.2592,  ..., 0.9374, 0.9417, 0.9420])
+负样本数量： 1985
+正样本数量： 899
+TP:  421
+TN:  1913
+FP:  72
+FN:  478
+First attempt - auc_val: 0.8177614472 acc_val: 0.8104904692
+Epoch: 0014 loss_train: 0.4624685148 auc_train: 0.8181636920 acc_train: 0.7976185213 precision_train: 0.8867612703 recall_train: 0.5152255321 f1_train: 0.6514800468 loss_val: 0.4484382421 auc_val: 0.8166263856 acc_val: 0.8098915592 precision_val: 0.8590551618 recall_val: 0.4657991256 f1_val: 0.6040445289 time: 0.3731s
+Epoch 0014: val_loss 没有改善 0.448438，最佳值 0.443064，等待 1/15
+y_pred: tensor([0.3212, 0.1411, 0.1220,  ..., 0.7732, 0.8245, 0.8887],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13601
+正样本数量： 8428
+TP:  4299
+TN:  13180
+FP:  421
+FN:  4129
+batch idx: 0, loss: 0.461171 auc: 0.8239, acc: 0.7935, precision: 0.9108, recall: 0.5101, f1: 0.6539, time: 0.090s
+y_pred: tensor([0.3160, 0.1457, 0.1896,  ..., 0.9004, 0.9386, 0.9340],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13973
+正样本数量： 7992
+TP:  4301
+TN:  13225
+FP:  748
+FN:  3691
+batch idx: 1, loss: 0.463341 auc: 0.8175, acc: 0.7979, precision: 0.8519, recall: 0.5382, f1: 0.6596, time: 0.094s
+y_pred: tensor([0.3012, 0.3198, 0.3173,  ..., 0.1720, 0.1586, 0.2554],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12837
+正样本数量： 7099
+TP:  3409
+TN:  12511
+FP:  326
+FN:  3690
+batch idx: 2, loss: 0.458633 auc: 0.8156, acc: 0.7986, precision: 0.9127, recall: 0.4802, f1: 0.6293, time: 0.091s
+First attempt - auc_train: 0.8239098147 acc_train: 0.7934540833
+y_pred: tensor([0.4736, 0.4972, 0.5081,  ..., 0.9437, 0.9510, 0.9583])
+负样本数量： 15671
+正样本数量： 6997
+TP:  3014
+TN:  15306
+FP:  365
+FN:  3983
+y_pred: tensor([0.1125, 0.0912, 0.0930,  ..., 0.1732, 0.1205, 0.1253])
+负样本数量： 1895
+正样本数量： 932
+TP:  443
+TN:  1795
+FP:  100
+FN:  489
+First attempt - auc_val: 0.8195154825 acc_val: 0.8081877537
+Epoch: 0015 loss_train: 0.4610482653 auc_train: 0.8190073106 acc_train: 0.7966384065 precision_train: 0.8917914911 recall_train: 0.5094856909 f1_train: 0.6476222916 loss_val: 0.4564144164 auc_val: 0.8188978717 acc_val: 0.7999198408 precision_val: 0.8539089065 recall_val: 0.4530389634 f1_val: 0.5908170093 time: 0.3767s
+Epoch 0015: val_loss 没有改善 0.456414，最佳值 0.443064，等待 2/15
+y_pred: tensor([0.3976, 0.4219, 0.1466,  ..., 0.1553, 0.1518, 0.2790],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13897
+正样本数量： 7823
+TP:  3612
+TN:  13676
+FP:  221
+FN:  4211
+batch idx: 0, loss: 0.454131 auc: 0.8231, acc: 0.7959, precision: 0.9423, recall: 0.4617, f1: 0.6198, time: 0.086s
+y_pred: tensor([0.5205, 0.4212, 0.3638,  ..., 0.4601, 0.5918, 0.7532],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13714
+正样本数量： 8082
+TP:  4437
+TN:  12986
+FP:  728
+FN:  3645
+batch idx: 1, loss: 0.462513 auc: 0.8223, acc: 0.7994, precision: 0.8591, recall: 0.5490, f1: 0.6699, time: 0.086s
+y_pred: tensor([0.1440, 0.2374, 0.2673,  ..., 0.9591, 0.9593, 0.9609],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12800
+正样本数量： 7614
+TP:  4088
+TN:  12162
+FP:  638
+FN:  3526
+batch idx: 2, loss: 0.465279 auc: 0.8183, acc: 0.7960, precision: 0.8650, recall: 0.5369, f1: 0.6626, time: 0.085s
+First attempt - auc_train: 0.8231389433 acc_train: 0.7959484346
+y_pred: tensor([0.1089, 0.0996, 0.0978,  ..., 0.9598, 0.9437, 0.9550])
+负样本数量： 15751
+正样本数量： 7055
+TP:  3298
+TN:  15192
+FP:  559
+FN:  3757
+y_pred: tensor([0.3054, 0.1442, 0.1095,  ..., 0.9526, 0.9541, 0.9548])
+负样本数量： 1815
+正样本数量： 874
+TP:  412
+TN:  1766
+FP:  49
+FN:  462
+First attempt - auc_val: 0.8198419899 acc_val: 0.8107515566
+Epoch: 0016 loss_train: 0.4606410960 auc_train: 0.8212411903 acc_train: 0.7971125428 precision_train: 0.8887987451 recall_train: 0.5158729758 f1_train: 0.6507383145 loss_val: 0.4388665706 auc_val: 0.8291424901 acc_val: 0.8103590435 precision_val: 0.8743890169 recall_val: 0.4694328803 f1_val: 0.6108503026 time: 0.3572s
+Best model so far, saving...
+已保存最佳模型到 ../model/expCEKT2025-08-02 12-58-23//checkpoints/best_model.pt
+Epoch 0016: val_loss 改善从 0.438867 到 0.438867
+y_pred: tensor([0.2984, 0.3207, 0.2649,  ..., 0.8178, 0.9318, 0.9473],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13884
+正样本数量： 8168
+TP:  4092
+TN:  13548
+FP:  336
+FN:  4076
+batch idx: 0, loss: 0.450033 auc: 0.8265, acc: 0.7999, precision: 0.9241, recall: 0.5010, f1: 0.6497, time: 0.090s
+y_pred: tensor([0.1065, 0.0972, 0.1469,  ..., 0.8889, 0.9351, 0.9459],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14220
+正样本数量： 8033
+TP:  3913
+TN:  13859
+FP:  361
+FN:  4120
+batch idx: 1, loss: 0.453462 auc: 0.8240, acc: 0.7986, precision: 0.9155, recall: 0.4871, f1: 0.6359, time: 0.089s
+y_pred: tensor([0.2681, 0.4578, 0.2147,  ..., 0.6576, 0.6872, 0.7629],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12307
+正样本数量： 7318
+TP:  3517
+TN:  12025
+FP:  282
+FN:  3801
+batch idx: 2, loss: 0.461895 auc: 0.8174, acc: 0.7919, precision: 0.9258, recall: 0.4806, f1: 0.6327, time: 0.088s
+First attempt - auc_train: 0.8265155535 acc_train: 0.7999274442
+y_pred: tensor([0.3558, 0.3001, 0.3156,  ..., 0.9528, 0.9639, 0.9566])
+负样本数量： 15602
+正样本数量： 7015
+TP:  3410
+TN:  14996
+FP:  606
+FN:  3605
+y_pred: tensor([0.2965, 0.3059, 0.3825,  ..., 0.9659, 0.9683, 0.9679])
+负样本数量： 1964
+正样本数量： 914
+TP:  445
+TN:  1892
+FP:  72
+FN:  469
+First attempt - auc_val: 0.8247551281 acc_val: 0.8138126188
+Epoch: 0017 loss_train: 0.4551299910 auc_train: 0.8226416782 acc_train: 0.7968367936 precision_train: 0.9218083262 recall_train: 0.4895636237 f1_train: 0.6394509994 loss_val: 0.4491448104 auc_val: 0.8184979052 acc_val: 0.8129174282 precision_val: 0.8549192977 recall_val: 0.4864860544 f1_val: 0.6201001675 time: 0.3662s
+Epoch 0017: val_loss 没有改善 0.449145，最佳值 0.438867，等待 1/15
+y_pred: tensor([0.2857, 0.1457, 0.2195,  ..., 0.9553, 0.9500, 0.9661],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13995
+正样本数量： 8251
+TP:  4263
+TN:  13580
+FP:  415
+FN:  3988
+batch idx: 0, loss: 0.451173 auc: 0.8266, acc: 0.8021, precision: 0.9113, recall: 0.5167, f1: 0.6594, time: 0.089s
+y_pred: tensor([0.1400, 0.1277, 0.1322,  ..., 0.9671, 0.9582, 0.9711],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14021
+正样本数量： 7948
+TP:  4197
+TN:  13440
+FP:  581
+FN:  3751
+batch idx: 1, loss: 0.452831 auc: 0.8233, acc: 0.8028, precision: 0.8784, recall: 0.5281, f1: 0.6596, time: 0.090s
+y_pred: tensor([0.1199, 0.1030, 0.1773,  ..., 0.6750, 0.7485, 0.8602],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12395
+正样本数量： 7320
+TP:  3894
+TN:  11876
+FP:  519
+FN:  3426
+batch idx: 2, loss: 0.455569 auc: 0.8235, acc: 0.7999, precision: 0.8824, recall: 0.5320, f1: 0.6638, time: 0.089s
+First attempt - auc_train: 0.8265854683 acc_train: 0.8020767778
+y_pred: tensor([0.1609, 0.1477, 0.1233,  ..., 0.1589, 0.2596, 0.1579])
+负样本数量： 15717
+正样本数量： 6986
+TP:  3390
+TN:  15107
+FP:  610
+FN:  3596
+y_pred: tensor([0.4063, 0.4296, 0.4467,  ..., 0.9675, 0.9656, 0.9438])
+负样本数量： 1849
+正样本数量： 943
+TP:  488
+TN:  1778
+FP:  71
+FN:  455
+First attempt - auc_val: 0.8227794449 acc_val: 0.8147381403
+Epoch: 0018 loss_train: 0.4531908532 auc_train: 0.8244793346 acc_train: 0.8015961290 precision_train: 0.8906936031 recall_train: 0.5255630776 f1_train: 0.6609370470 loss_val: 0.4428369552 auc_val: 0.8292578257 acc_val: 0.8131713624 precision_val: 0.8602437388 recall_val: 0.5013767878 f1_val: 0.6334746826 time: 0.3682s
+Epoch 0018: val_loss 没有改善 0.442837，最佳值 0.438867，等待 2/15
+y_pred: tensor([0.1121, 0.2194, 0.2386,  ..., 0.5097, 0.6321, 0.7482],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13840
+正样本数量： 8245
+TP:  4287
+TN:  13348
+FP:  492
+FN:  3958
+batch idx: 0, loss: 0.456404 auc: 0.8206, acc: 0.7985, precision: 0.8970, recall: 0.5200, f1: 0.6583, time: 0.091s
+y_pred: tensor([0.2692, 0.2747, 0.2753,  ..., 0.8778, 0.9120, 0.9329],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13835
+正样本数量： 8368
+TP:  4225
+TN:  13527
+FP:  308
+FN:  4143
+batch idx: 1, loss: 0.447066 auc: 0.8335, acc: 0.7995, precision: 0.9321, recall: 0.5049, f1: 0.6550, time: 0.089s
+y_pred: tensor([0.1273, 0.1116, 0.1841,  ..., 0.9562, 0.9701, 0.9674],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12736
+正样本数量： 6906
+TP:  3276
+TN:  12470
+FP:  266
+FN:  3630
+batch idx: 2, loss: 0.450453 auc: 0.8193, acc: 0.8016, precision: 0.9249, recall: 0.4744, f1: 0.6271, time: 0.084s
+First attempt - auc_train: 0.8206319779 acc_train: 0.7985057731
+y_pred: tensor([0.2497, 0.1373, 0.1786,  ..., 0.9570, 0.9379, 0.9439])
+负样本数量： 15520
+正样本数量： 7019
+TP:  3314
+TN:  15010
+FP:  510
+FN:  3705
+y_pred: tensor([0.2744, 0.4133, 0.3900,  ..., 0.2010, 0.2185, 0.2191])
+负样本数量： 2046
+正样本数量： 910
+TP:  424
+TN:  1997
+FP:  49
+FN:  486
+First attempt - auc_val: 0.8257502923 acc_val: 0.8129908159
+Epoch: 0019 loss_train: 0.4513076345 auc_train: 0.8244668203 acc_train: 0.7998956315 precision_train: 0.9180015351 recall_train: 0.4997404054 f1_train: 0.6468055825 loss_val: 0.4363555461 auc_val: 0.8227996303 acc_val: 0.8160014973 precision_val: 0.8815188594 recall_val: 0.4690405477 f1_val: 0.6122148706 time: 0.3638s
+Best model so far, saving...
+已保存最佳模型到 ../model/expCEKT2025-08-02 12-58-23//checkpoints/best_model.pt
+Epoch 0019: val_loss 改善从 0.436356 到 0.436356
+y_pred: tensor([0.4251, 0.4938, 0.1767,  ..., 0.3427, 0.4109, 0.4607],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13456
+正样本数量： 7967
+TP:  3901
+TN:  13214
+FP:  242
+FN:  4066
+batch idx: 0, loss: 0.449683 auc: 0.8271, acc: 0.7989, precision: 0.9416, recall: 0.4896, f1: 0.6443, time: 0.088s
+y_pred: tensor([0.2232, 0.3024, 0.2880,  ..., 0.8553, 0.8858, 0.9605],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14194
+正样本数量： 7918
+TP:  4192
+TN:  13558
+FP:  636
+FN:  3726
+batch idx: 1, loss: 0.457931 auc: 0.8168, acc: 0.8027, precision: 0.8683, recall: 0.5294, f1: 0.6578, time: 0.090s
+y_pred: tensor([0.2872, 0.4347, 0.4091,  ..., 0.9472, 0.9448, 0.9510],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12761
+正样本数量： 7634
+TP:  4183
+TN:  12222
+FP:  539
+FN:  3451
+batch idx: 2, loss: 0.447588 auc: 0.8335, acc: 0.8044, precision: 0.8859, recall: 0.5479, f1: 0.6771, time: 0.089s
+First attempt - auc_train: 0.8270550138 acc_train: 0.7989077160
+y_pred: tensor([0.1023, 0.0926, 0.0892,  ..., 0.2218, 0.2275, 0.3621])
+负样本数量： 15621
+正样本数量： 6943
+TP:  3419
+TN:  14975
+FP:  646
+FN:  3524
+y_pred: tensor([0.0955, 0.0914, 0.0821,  ..., 0.1543, 0.3204, 0.1582])
+负样本数量： 1945
+正样本数量： 986
+TP:  508
+TN:  1911
+FP:  34
+FN:  478
+First attempt - auc_val: 0.8221271230 acc_val: 0.8151923418
+Epoch: 0020 loss_train: 0.4517337680 auc_train: 0.8258004641 acc_train: 0.8020010264 precision_train: 0.8985700357 recall_train: 0.5223382729 f1_train: 0.6597052969 loss_val: 0.4269382805 auc_val: 0.8374582804 acc_val: 0.8202539669 precision_val: 0.8891758918 recall_val: 0.5038257045 f1_val: 0.6430530295 time: 0.3744s
+Best model so far, saving...
+已保存最佳模型到 ../model/expCEKT2025-08-02 12-58-23//checkpoints/best_model.pt
+Epoch 0020: val_loss 改善从 0.426938 到 0.426938
+y_pred: tensor([0.2618, 0.1426, 0.1179,  ..., 0.1525, 0.3218, 0.1609],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14191
+正样本数量： 7913
+TP:  4113
+TN:  13765
+FP:  426
+FN:  3800
+batch idx: 0, loss: 0.445021 auc: 0.8221, acc: 0.8088, precision: 0.9061, recall: 0.5198, f1: 0.6606, time: 0.092s
+y_pred: tensor([0.0989, 0.1392, 0.1770,  ..., 0.9553, 0.9589, 0.9622],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13711
+正样本数量： 8268
+TP:  4166
+TN:  13382
+FP:  329
+FN:  4102
+batch idx: 1, loss: 0.452876 auc: 0.8261, acc: 0.7984, precision: 0.9268, recall: 0.5039, f1: 0.6528, time: 0.093s
+y_pred: tensor([0.0972, 0.1599, 0.1701,  ..., 0.9542, 0.9574, 0.9677],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12509
+正样本数量： 7338
+TP:  3643
+TN:  12237
+FP:  272
+FN:  3695
+batch idx: 2, loss: 0.445694 auc: 0.8329, acc: 0.8001, precision: 0.9305, recall: 0.4965, f1: 0.6475, time: 0.087s
+First attempt - auc_train: 0.8220878251 acc_train: 0.8088128845
+y_pred: tensor([0.2670, 0.1389, 0.1080,  ..., 0.8720, 0.8694, 0.9391])
+负样本数量： 15619
+正样本数量： 7002
+TP:  3250
+TN:  15171
+FP:  448
+FN:  3752
+y_pred: tensor([0.4460, 0.1763, 0.2494,  ..., 0.1035, 0.1139, 0.0942])
+负样本数量： 1947
+正样本数量： 927
+TP:  442
+TN:  1893
+FP:  54
+FN:  485
+First attempt - auc_val: 0.8271840106 acc_val: 0.8143318156
+Epoch: 0021 loss_train: 0.4478636185 auc_train: 0.8270132631 acc_train: 0.8024440936 precision_train: 0.9211593065 recall_train: 0.5067015750 f1_train: 0.6536377082 loss_val: 0.4346146435 auc_val: 0.8288535838 acc_val: 0.8133941611 precision_val: 0.8849912333 recall_val: 0.4704800016 f1_val: 0.6143497022 time: 0.3728s
+Epoch 0021: val_loss 没有改善 0.434615，最佳值 0.426938，等待 1/15
+y_pred: tensor([0.1003, 0.0820, 0.0849,  ..., 0.4536, 0.1479, 0.1229],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14359
+正样本数量： 7930
+TP:  3911
+TN:  14067
+FP:  292
+FN:  4019
+batch idx: 0, loss: 0.442701 auc: 0.8257, acc: 0.8066, precision: 0.9305, recall: 0.4932, f1: 0.6447, time: 0.087s
+y_pred: tensor([0.2554, 0.2856, 0.2563,  ..., 0.9753, 0.9667, 0.9660],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13733
+正样本数量： 8146
+TP:  4201
+TN:  13348
+FP:  385
+FN:  3945
+batch idx: 1, loss: 0.450906 auc: 0.8239, acc: 0.8021, precision: 0.9160, recall: 0.5157, f1: 0.6599, time: 0.094s
+y_pred: tensor([0.1085, 0.1949, 0.1406,  ..., 0.9494, 0.9715, 0.9422],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12319
+正样本数量： 7443
+TP:  3958
+TN:  11932
+FP:  387
+FN:  3485
+batch idx: 2, loss: 0.442765 auc: 0.8353, acc: 0.8041, precision: 0.9109, recall: 0.5318, f1: 0.6715, time: 0.086s
+First attempt - auc_train: 0.8257267544 acc_train: 0.8065862084
+y_pred: tensor([0.2565, 0.2587, 0.1474,  ..., 0.9550, 0.9630, 0.9720])
+负样本数量： 15698
+正样本数量： 7059
+TP:  3581
+TN:  15060
+FP:  638
+FN:  3478
+y_pred: tensor([0.2852, 0.1424, 0.1136,  ..., 0.5676, 0.8362, 0.9063])
+负样本数量： 1868
+正样本数量： 870
+TP:  430
+TN:  1762
+FP:  106
+FN:  440
+First attempt - auc_val: 0.8283908803 acc_val: 0.8191325746
+Epoch: 0022 loss_train: 0.4454572697 auc_train: 0.8283263081 acc_train: 0.8042493180 precision_train: 0.9191689217 recall_train: 0.5135594905 f1_train: 0.6587101478 loss_val: 0.4574777633 auc_val: 0.8221163526 acc_val: 0.8098584714 precision_val: 0.8255090688 recall_val: 0.5007742623 f1_val: 0.6233529850 time: 0.3660s
+Epoch 0022: val_loss 没有改善 0.457478，最佳值 0.426938，等待 2/15
+y_pred: tensor([0.2695, 0.2640, 0.2609,  ..., 0.9658, 0.9737, 0.9660],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13963
+正样本数量： 7978
+TP:  4247
+TN:  13424
+FP:  539
+FN:  3731
+batch idx: 0, loss: 0.449783 auc: 0.8269, acc: 0.8054, precision: 0.8874, recall: 0.5323, f1: 0.6655, time: 0.086s
+y_pred: tensor([0.1455, 0.1532, 0.1417,  ..., 0.8910, 0.9399, 0.9248],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13415
+正样本数量： 8364
+TP:  4526
+TN:  12978
+FP:  437
+FN:  3838
+batch idx: 1, loss: 0.443936 auc: 0.8331, acc: 0.8037, precision: 0.9119, recall: 0.5411, f1: 0.6792, time: 0.089s
+y_pred: tensor([0.3561, 0.3643, 0.3939,  ..., 0.9312, 0.9526, 0.9514],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13033
+正样本数量： 7177
+TP:  3559
+TN:  12759
+FP:  274
+FN:  3618
+batch idx: 2, loss: 0.439951 auc: 0.8267, acc: 0.8074, precision: 0.9285, recall: 0.4959, f1: 0.6465, time: 0.087s
+First attempt - auc_train: 0.8268806458 acc_train: 0.8053871747
+y_pred: tensor([0.3706, 0.3837, 0.4018,  ..., 0.1498, 0.2376, 0.2026])
+负样本数量： 15597
+正样本数量： 7033
+TP:  3265
+TN:  15189
+FP:  408
+FN:  3768
+y_pred: tensor([0.2480, 0.2421, 0.1144,  ..., 0.1487, 0.2428, 0.3043])
+负样本数量： 1969
+正样本数量： 896
+TP:  435
+TN:  1901
+FP:  68
+FN:  461
+First attempt - auc_val: 0.8298648115 acc_val: 0.8154661953
+Epoch: 0023 loss_train: 0.4445568621 auc_train: 0.8288837914 acc_train: 0.8055064129 precision_train: 0.9092812664 recall_train: 0.5231190754 f1_train: 0.6637303937 loss_val: 0.4371935874 auc_val: 0.8244505565 acc_val: 0.8154119807 precision_val: 0.8768651364 recall_val: 0.4748655414 f1_val: 0.6159055593 time: 0.3646s
+Epoch 0023: val_loss 没有改善 0.437194，最佳值 0.426938，等待 3/15
+y_pred: tensor([0.2780, 0.2431, 0.1454,  ..., 0.1293, 0.1095, 0.1145],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14134
+正样本数量： 7784
+TP:  3810
+TN:  13853
+FP:  281
+FN:  3974
+batch idx: 0, loss: 0.443899 auc: 0.8224, acc: 0.8059, precision: 0.9313, recall: 0.4895, f1: 0.6417, time: 0.086s
+y_pred: tensor([0.3675, 0.1416, 0.2187,  ..., 0.9601, 0.9626, 0.9752],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13481
+正样本数量： 8400
+TP:  4279
+TN:  13203
+FP:  278
+FN:  4121
+batch idx: 1, loss: 0.445950 auc: 0.8366, acc: 0.7990, precision: 0.9390, recall: 0.5094, f1: 0.6605, time: 0.086s
+y_pred: tensor([0.1015, 0.0871, 0.0863,  ..., 0.1594, 0.2334, 0.2307],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12796
+正样本数量： 7335
+TP:  3772
+TN:  12470
+FP:  326
+FN:  3563
+batch idx: 2, loss: 0.441608 auc: 0.8284, acc: 0.8068, precision: 0.9204, recall: 0.5142, f1: 0.6598, time: 0.086s
+First attempt - auc_train: 0.8223881734 acc_train: 0.8058673237
+y_pred: tensor([0.4721, 0.4885, 0.5100,  ..., 0.4857, 0.6615, 0.8386])
+负样本数量： 15745
+正样本数量： 7003
+TP:  3546
+TN:  15125
+FP:  620
+FN:  3457
+y_pred: tensor([0.4722, 0.1896, 0.2801,  ..., 0.3966, 0.1841, 0.4941])
+负样本数量： 1821
+正样本数量： 926
+TP:  447
+TN:  1779
+FP:  42
+FN:  479
+First attempt - auc_val: 0.8260192848 acc_val: 0.8207754528
+Epoch: 0024 loss_train: 0.4438188771 auc_train: 0.8291286636 acc_train: 0.8038802277 precision_train: 0.9302521966 recall_train: 0.5043723648 f1_train: 0.6540069729 loss_val: 0.4316391647 auc_val: 0.8405104341 acc_val: 0.8155570020 precision_val: 0.8826433088 recall_val: 0.4945379009 f1_val: 0.6333869585 time: 0.3566s
+Epoch 0024: val_loss 没有改善 0.431639，最佳值 0.426938，等待 4/15
+y_pred: tensor([0.2915, 0.1467, 0.2172,  ..., 0.9455, 0.9739, 0.9729],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13848
+正样本数量： 7959
+TP:  4255
+TN:  13332
+FP:  516
+FN:  3704
+batch idx: 0, loss: 0.447755 auc: 0.8273, acc: 0.8065, precision: 0.8918, recall: 0.5346, f1: 0.6685, time: 0.087s
+y_pred: tensor([0.4424, 0.3022, 0.2923,  ..., 0.9358, 0.9468, 0.9507],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14310
+正样本数量： 8017
+TP:  4182
+TN:  13906
+FP:  404
+FN:  3835
+batch idx: 1, loss: 0.436862 auc: 0.8303, acc: 0.8101, precision: 0.9119, recall: 0.5216, f1: 0.6637, time: 0.088s
+y_pred: tensor([0.2948, 0.1415, 0.1212,  ..., 0.8258, 0.8093, 0.8904],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12253
+正样本数量： 7543
+TP:  3936
+TN:  11985
+FP:  268
+FN:  3607
+batch idx: 2, loss: 0.440044 auc: 0.8344, acc: 0.8043, precision: 0.9363, recall: 0.5218, f1: 0.6701, time: 0.087s
+First attempt - auc_train: 0.8272689952 acc_train: 0.8064841565
+y_pred: tensor([0.0963, 0.0905, 0.0846,  ..., 0.7820, 0.7536, 0.8437])
+负样本数量： 15632
+正样本数量： 6970
+TP:  3357
+TN:  15148
+FP:  484
+FN:  3613
+y_pred: tensor([0.0971, 0.1564, 0.1319,  ..., 0.9573, 0.9760, 0.9606])
+负样本数量： 1934
+正样本数量： 959
+TP:  441
+TN:  1893
+FP:  41
+FN:  518
+First attempt - auc_val: 0.8289786778 acc_val: 0.8187328555
+Epoch: 0025 loss_train: 0.4415535927 auc_train: 0.8306493900 acc_train: 0.8069592433 precision_train: 0.9133345209 recall_train: 0.5260215707 f1_train: 0.6674265541 loss_val: 0.4343302846 auc_val: 0.8293323113 acc_val: 0.8127539148 precision_val: 0.8944644537 recall_val: 0.4707447978 f1_val: 0.6165545399 time: 0.3608s
+Epoch 0025: val_loss 没有改善 0.434330，最佳值 0.426938，等待 5/15
+y_pred: tensor([0.3642, 0.4183, 0.1442,  ..., 0.9411, 0.3346, 0.4354],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13745
+正样本数量： 7888
+TP:  4003
+TN:  13452
+FP:  293
+FN:  3885
+batch idx: 0, loss: 0.440854 auc: 0.8266, acc: 0.8069, precision: 0.9318, recall: 0.5075, f1: 0.6571, time: 0.087s
+y_pred: tensor([0.4854, 0.4953, 0.5351,  ..., 0.3642, 0.4574, 0.4653],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13984
+正样本数量： 8350
+TP:  4297
+TN:  13681
+FP:  303
+FN:  4053
+batch idx: 1, loss: 0.437631 auc: 0.8387, acc: 0.8050, precision: 0.9341, recall: 0.5146, f1: 0.6636, time: 0.088s
+y_pred: tensor([0.4254, 0.1865, 0.1693,  ..., 0.9555, 0.9757, 0.9703],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12682
+正样本数量： 7281
+TP:  3683
+TN:  12396
+FP:  286
+FN:  3598
+batch idx: 2, loss: 0.440063 auc: 0.8291, acc: 0.8054, precision: 0.9279, recall: 0.5058, f1: 0.6548, time: 0.085s
+First attempt - auc_train: 0.8265640299 acc_train: 0.8068691351
+y_pred: tensor([0.1048, 0.1717, 0.1343,  ..., 0.9740, 0.9723, 0.3911])
+负样本数量： 15400
+正样本数量： 7129
+TP:  3593
+TN:  14844
+FP:  556
+FN:  3536
+y_pred: tensor([0.0983, 0.0973, 0.0857,  ..., 0.8995, 0.3632, 0.5708])
+负样本数量： 2166
+正样本数量： 800
+TP:  369
+TN:  2117
+FP:  49
+FN:  431
+First attempt - auc_val: 0.8314002392 acc_val: 0.8183674375
+Epoch: 0026 loss_train: 0.4395159185 auc_train: 0.8314533197 acc_train: 0.8057567484 precision_train: 0.9312896674 recall_train: 0.5093092016 f1_train: 0.6584920555 loss_val: 0.4251709282 auc_val: 0.8243639873 acc_val: 0.8282666587 precision_val: 0.8743834624 recall_val: 0.4826238778 f1_val: 0.6215405205 time: 0.3579s
+Best model so far, saving...
+已保存最佳模型到 ../model/expCEKT2025-08-02 12-58-23//checkpoints/best_model.pt
+Epoch 0026: val_loss 改善从 0.425171 到 0.425171
+y_pred: tensor([0.5027, 0.4652, 0.5026,  ..., 0.9656, 0.9541, 0.9733],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13853
+正样本数量： 8123
+TP:  4251
+TN:  13453
+FP:  400
+FN:  3872
+batch idx: 0, loss: 0.447429 auc: 0.8225, acc: 0.8056, precision: 0.9140, recall: 0.5233, f1: 0.6656, time: 0.088s
+y_pred: tensor([0.3385, 0.4874, 0.5236,  ..., 0.9786, 0.9778, 0.9802],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14071
+正样本数量： 8038
+TP:  4217
+TN:  13710
+FP:  361
+FN:  3821
+batch idx: 1, loss: 0.433062 auc: 0.8352, acc: 0.8108, precision: 0.9211, recall: 0.5246, f1: 0.6685, time: 0.087s
+y_pred: tensor([0.4798, 0.2759, 0.4092,  ..., 0.9740, 0.9650, 0.9644],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12487
+正样本数量： 7358
+TP:  3850
+TN:  12187
+FP:  300
+FN:  3508
+batch idx: 2, loss: 0.432406 auc: 0.8407, acc: 0.8081, precision: 0.9277, recall: 0.5232, f1: 0.6691, time: 0.087s
+First attempt - auc_train: 0.8224670048 acc_train: 0.8056061158
+y_pred: tensor([0.3691, 0.1821, 0.2210,  ..., 0.0728, 0.0727, 0.0723])
+负样本数量： 15551
+正样本数量： 7015
+TP:  3371
+TN:  15103
+FP:  448
+FN:  3644
+y_pred: tensor([0.1197, 0.1115, 0.2133,  ..., 0.9231, 0.9384, 0.9441])
+负样本数量： 2015
+正样本数量： 914
+TP:  455
+TN:  1944
+FP:  71
+FN:  459
+First attempt - auc_val: 0.8318733299 acc_val: 0.8186652486
+Epoch: 0027 loss_train: 0.4376324713 auc_train: 0.8327956828 acc_train: 0.8081884174 precision_train: 0.9209508126 recall_train: 0.5237339412 f1_train: 0.6677288724 loss_val: 0.4343349636 auc_val: 0.8263166922 acc_val: 0.8188580596 precision_val: 0.8738554078 recall_val: 0.4891767563 f1_val: 0.6271223053 time: 0.3623s
+Epoch 0027: val_loss 没有改善 0.434335，最佳值 0.425171，等待 1/15
+y_pred: tensor([0.2280, 0.3741, 0.3129,  ..., 0.3582, 0.4121, 0.4146],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13743
+正样本数量： 8238
+TP:  4247
+TN:  13426
+FP:  317
+FN:  3991
+batch idx: 0, loss: 0.437758 auc: 0.8349, acc: 0.8040, precision: 0.9305, recall: 0.5155, f1: 0.6635, time: 0.089s
+y_pred: tensor([0.0921, 0.0829, 0.2529,  ..., 0.9686, 0.9820, 0.9746],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14210
+正样本数量： 7804
+TP:  4057
+TN:  13890
+FP:  320
+FN:  3747
+batch idx: 1, loss: 0.429771 auc: 0.8329, acc: 0.8153, precision: 0.9269, recall: 0.5199, f1: 0.6661, time: 0.090s
+y_pred: tensor([0.1251, 0.1100, 0.2849,  ..., 0.7759, 0.8411, 0.9012],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12458
+正样本数量： 7477
+TP:  3791
+TN:  12226
+FP:  232
+FN:  3686
+batch idx: 2, loss: 0.441399 auc: 0.8318, acc: 0.8035, precision: 0.9423, recall: 0.5070, f1: 0.6593, time: 0.091s
+First attempt - auc_train: 0.8349438334 acc_train: 0.8040125563
+y_pred: tensor([0.1001, 0.0935, 0.0867,  ..., 0.1031, 0.1000, 0.0963])
+负样本数量： 15624
+正样本数量： 7078
+TP:  3501
+TN:  15135
+FP:  489
+FN:  3577
+y_pred: tensor([0.4579, 0.4382, 0.2641,  ..., 0.1586, 0.2828, 0.3484])
+负样本数量： 1942
+正样本数量： 851
+TP:  403
+TN:  1878
+FP:  64
+FN:  448
+First attempt - auc_val: 0.8301641223 acc_val: 0.8208968373
+Epoch: 0028 loss_train: 0.4363092184 auc_train: 0.8332057834 acc_train: 0.8075759116 precision_train: 0.9332551802 recall_train: 0.5141402980 f1_train: 0.6629712646 loss_val: 0.4264464825 auc_val: 0.8350057349 acc_val: 0.8187907029 precision_val: 0.8701993206 recall_val: 0.4840958844 f1_val: 0.6220836238 time: 0.3814s
+Epoch 0028: val_loss 没有改善 0.426446，最佳值 0.425171，等待 2/15
+y_pred: tensor([0.0965, 0.0889, 0.0803,  ..., 0.9755, 0.9558, 0.9717],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13692
+正样本数量： 7923
+TP:  4170
+TN:  13335
+FP:  357
+FN:  3753
+batch idx: 0, loss: 0.433390 auc: 0.8374, acc: 0.8099, precision: 0.9211, recall: 0.5263, f1: 0.6699, time: 0.088s
+y_pred: tensor([0.2759, 0.2685, 0.2485,  ..., 0.9738, 0.9623, 0.9734],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13940
+正样本数量： 8131
+TP:  4339
+TN:  13603
+FP:  337
+FN:  3792
+batch idx: 1, loss: 0.432622 auc: 0.8330, acc: 0.8129, precision: 0.9279, recall: 0.5336, f1: 0.6776, time: 0.090s
+y_pred: tensor([0.4579, 0.4184, 0.3049,  ..., 0.1618, 0.1323, 0.1298],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12779
+正样本数量： 7465
+TP:  3791
+TN:  12535
+FP:  244
+FN:  3674
+batch idx: 2, loss: 0.435965 auc: 0.8335, acc: 0.8065, precision: 0.9395, recall: 0.5078, f1: 0.6593, time: 0.085s
+First attempt - auc_train: 0.8373709630 acc_train: 0.8098542679
+y_pred: tensor([0.2634, 0.1281, 0.1083,  ..., 0.9808, 0.9808, 0.9639])
+负样本数量： 15567
+正样本数量： 7057
+TP:  3472
+TN:  15081
+FP:  486
+FN:  3585
+y_pred: tensor([0.1224, 0.1145, 0.1029,  ..., 0.1478, 0.1551, 0.1543])
+负样本数量： 1999
+正样本数量： 872
+TP:  424
+TN:  1956
+FP:  43
+FN:  448
+First attempt - auc_val: 0.8296509917 acc_val: 0.8200583451
+Epoch: 0029 loss_train: 0.4339922766 auc_train: 0.8346303312 acc_train: 0.8097457918 precision_train: 0.9295329342 recall_train: 0.5225963531 f1_train: 0.6689273515 loss_val: 0.4200257212 auc_val: 0.8372044032 acc_val: 0.8245188974 precision_val: 0.8925668123 recall_val: 0.4891161486 f1_val: 0.6318607561 time: 0.3615s
+Best model so far, saving...
+已保存最佳模型到 ../model/expCEKT2025-08-02 12-58-23//checkpoints/best_model.pt
+Epoch 0029: val_loss 改善从 0.420026 到 0.420026
+y_pred: tensor([0.0917, 0.0881, 0.0725,  ..., 0.3009, 0.3098, 0.3025],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14137
+正样本数量： 7966
+TP:  4117
+TN:  13818
+FP:  319
+FN:  3849
+batch idx: 0, loss: 0.430153 auc: 0.8352, acc: 0.8114, precision: 0.9281, recall: 0.5168, f1: 0.6639, time: 0.086s
+y_pred: tensor([0.2469, 0.1257, 0.1024,  ..., 0.1033, 0.0969, 0.0930],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14005
+正样本数量： 8124
+TP:  4170
+TN:  13736
+FP:  269
+FN:  3954
+batch idx: 1, loss: 0.429652 auc: 0.8383, acc: 0.8092, precision: 0.9394, recall: 0.5133, f1: 0.6639, time: 0.089s
+y_pred: tensor([0.2078, 0.1941, 0.2343,  ..., 0.9698, 0.9758, 0.9684],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12269
+正样本数量： 7429
+TP:  3871
+TN:  11985
+FP:  284
+FN:  3558
+batch idx: 2, loss: 0.437196 auc: 0.8327, acc: 0.8050, precision: 0.9316, recall: 0.5211, f1: 0.6683, time: 0.090s
+First attempt - auc_train: 0.8352183266 acc_train: 0.8114283129
+y_pred: tensor([0.0956, 0.0873, 0.0803,  ..., 0.8029, 0.8678, 0.9034])
+负样本数量： 15647
+正样本数量： 7135
+TP:  3523
+TN:  15190
+FP:  457
+FN:  3612
+y_pred: tensor([0.0974, 0.0884, 0.0764,  ..., 0.4866, 0.6679, 0.7287])
+负样本数量： 1919
+正样本数量： 794
+TP:  388
+TN:  1841
+FP:  78
+FN:  406
+First attempt - auc_val: 0.8318595633 acc_val: 0.8213940830
+Epoch: 0030 loss_train: 0.4323337376 auc_train: 0.8354305558 acc_train: 0.8085158585 precision_train: 0.9330459167 recall_train: 0.5170605092 f1_train: 0.6653716612 loss_val: 0.4293031693 auc_val: 0.8306994586 acc_val: 0.8214968941 precision_val: 0.8588969526 recall_val: 0.4912140634 f1_val: 0.6248955723 time: 0.3642s
+Epoch 0030: val_loss 没有改善 0.429303，最佳值 0.420026，等待 1/15
+y_pred: tensor([0.1270, 0.1207, 0.1416,  ..., 0.4370, 0.1679, 0.2485],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13903
+正样本数量： 7867
+TP:  3954
+TN:  13648
+FP:  255
+FN:  3913
+batch idx: 0, loss: 0.432991 auc: 0.8345, acc: 0.8085, precision: 0.9394, recall: 0.5026, f1: 0.6549, time: 0.087s
+y_pred: tensor([0.0968, 0.0837, 0.0806,  ..., 0.9280, 0.9719, 0.9675],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13880
+正样本数量： 7995
+TP:  4292
+TN:  13529
+FP:  351
+FN:  3703
+batch idx: 1, loss: 0.428080 auc: 0.8366, acc: 0.8147, precision: 0.9244, recall: 0.5368, f1: 0.6792, time: 0.090s
+y_pred: tensor([0.4609, 0.2479, 0.4202,  ..., 0.2533, 0.2766, 0.1817],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12628
+正样本数量： 7657
+TP:  4114
+TN:  12315
+FP:  313
+FN:  3543
+batch idx: 2, loss: 0.431642 auc: 0.8372, acc: 0.8099, precision: 0.9293, recall: 0.5373, f1: 0.6809, time: 0.087s
+First attempt - auc_train: 0.8344667987 acc_train: 0.8085438677
+y_pred: tensor([0.0915, 0.1639, 0.1224,  ..., 0.0674, 0.0672, 0.0666])
+负样本数量： 15634
+正样本数量： 7053
+TP:  3445
+TN:  15213
+FP:  421
+FN:  3608
+y_pred: tensor([0.2475, 0.2115, 0.1998,  ..., 0.9777, 0.9773, 0.9772])
+负样本数量： 1932
+正样本数量： 876
+TP:  427
+TN:  1872
+FP:  60
+FN:  449
+First attempt - auc_val: 0.8317959322 acc_val: 0.8224093093
+Epoch: 0031 loss_train: 0.4309043884 auc_train: 0.8360665729 acc_train: 0.8110423177 precision_train: 0.9310384523 recall_train: 0.5255758291 f1_train: 0.6716581200 loss_val: 0.4290143996 auc_val: 0.8297361587 acc_val: 0.8205707515 precision_val: 0.8839493144 recall_val: 0.4879437779 f1_val: 0.6287846133 time: 0.3641s
+Epoch 0031: val_loss 没有改善 0.429014，最佳值 0.420026，等待 2/15
+y_pred: tensor([0.0946, 0.1681, 0.1381,  ..., 0.9675, 0.9803, 0.9779],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14056
+正样本数量： 7954
+TP:  4141
+TN:  13792
+FP:  264
+FN:  3813
+batch idx: 0, loss: 0.428046 auc: 0.8324, acc: 0.8148, precision: 0.9401, recall: 0.5206, f1: 0.6701, time: 0.088s
+y_pred: tensor([0.3588, 0.3226, 0.3407,  ..., 0.9653, 0.9665, 0.9753],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13985
+正样本数量： 7697
+TP:  3811
+TN:  13706
+FP:  279
+FN:  3886
+batch idx: 1, loss: 0.430596 auc: 0.8350, acc: 0.8079, precision: 0.9318, recall: 0.4951, f1: 0.6466, time: 0.087s
+y_pred: tensor([0.0974, 0.0912, 0.0785,  ..., 0.9791, 0.9760, 0.9758],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12370
+正样本数量： 7868
+TP:  4191
+TN:  12164
+FP:  206
+FN:  3677
+batch idx: 2, loss: 0.428082 auc: 0.8437, acc: 0.8081, precision: 0.9531, recall: 0.5327, f1: 0.6834, time: 0.084s
+First attempt - auc_train: 0.8324203456 acc_train: 0.8147660154
+y_pred: tensor([0.0997, 0.0897, 0.0776,  ..., 0.9794, 0.9857, 0.9809])
+负样本数量： 15608
+正样本数量： 6944
+TP:  3469
+TN:  15112
+FP:  496
+FN:  3475
+y_pred: tensor([0.0980, 0.0877, 0.0802,  ..., 0.9885, 0.9774, 0.9753])
+负样本数量： 1958
+正样本数量： 985
+TP:  512
+TN:  1921
+FP:  37
+FN:  473
+First attempt - auc_val: 0.8292344744 acc_val: 0.8239180560
+Epoch: 0032 loss_train: 0.4289080997 auc_train: 0.8370410227 acc_train: 0.8102681350 precision_train: 0.9416676068 recall_train: 0.5161368280 f1_train: 0.6667238740 loss_val: 0.4183988571 auc_val: 0.8425196861 acc_val: 0.8253127487 precision_val: 0.9037550792 recall_val: 0.5096824633 f1_val: 0.6517622436 time: 0.3579s
+Best model so far, saving...
+已保存最佳模型到 ../model/expCEKT2025-08-02 12-58-23//checkpoints/best_model.pt
+Epoch 0032: val_loss 改善从 0.418399 到 0.418399
+y_pred: tensor([0.4888, 0.4830, 0.2548,  ..., 0.2002, 0.5097, 0.6979],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13598
+正样本数量： 7918
+TP:  4190
+TN:  13340
+FP:  258
+FN:  3728
+batch idx: 0, loss: 0.425165 auc: 0.8403, acc: 0.8147, precision: 0.9420, recall: 0.5292, f1: 0.6777, time: 0.089s
+y_pred: tensor([0.4583, 0.1847, 0.1653,  ..., 0.3112, 0.1908, 0.1720],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14033
+正样本数量： 7888
+TP:  4161
+TN:  13612
+FP:  421
+FN:  3727
+batch idx: 1, loss: 0.432479 auc: 0.8325, acc: 0.8108, precision: 0.9081, recall: 0.5275, f1: 0.6674, time: 0.091s
+y_pred: tensor([0.3034, 0.1212, 0.1101,  ..., 0.2377, 0.1678, 0.1540],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12780
+正样本数量： 7713
+TP:  4119
+TN:  12483
+FP:  297
+FN:  3594
+batch idx: 2, loss: 0.429638 auc: 0.8378, acc: 0.8101, precision: 0.9327, recall: 0.5340, f1: 0.6792, time: 0.090s
+First attempt - auc_train: 0.8403391993 acc_train: 0.8147425172
+y_pred: tensor([0.3373, 0.3189, 0.3245,  ..., 0.9794, 0.9780, 0.9726])
+负样本数量： 15454
+正样本数量： 7060
+TP:  3466
+TN:  15027
+FP:  427
+FN:  3594
+y_pred: tensor([0.1191, 0.2020, 0.1618,  ..., 0.0906, 0.0896, 0.1929])
+负样本数量： 2112
+正样本数量： 869
+TP:  399
+TN:  2074
+FP:  38
+FN:  470
+First attempt - auc_val: 0.8309184692 acc_val: 0.8214000178
+Epoch: 0033 loss_train: 0.4290938377 auc_train: 0.8368642433 acc_train: 0.8118826205 precision_train: 0.9276198978 recall_train: 0.5302392086 f1_train: 0.6747416157 loss_val: 0.4177546352 auc_val: 0.8314975395 acc_val: 0.8254937023 precision_val: 0.9016797150 recall_val: 0.4750416453 f1_val: 0.6219560005 time: 0.3662s
+Best model so far, saving...
+Epoch 0033: val_loss 没有改善 0.417755，最佳值 0.418399，等待 1/15
+y_pred: tensor([0.0880, 0.0840, 0.0800,  ..., 0.9825, 0.9870, 0.9841],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14144
+正样本数量： 7866
+TP:  3981
+TN:  13934
+FP:  210
+FN:  3885
+batch idx: 0, loss: 0.425585 auc: 0.8348, acc: 0.8139, precision: 0.9499, recall: 0.5061, f1: 0.6604, time: 0.085s
+y_pred: tensor([0.2318, 0.3994, 0.3685,  ..., 0.8832, 0.9059, 0.9287],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13853
+正样本数量： 8263
+TP:  4338
+TN:  13602
+FP:  251
+FN:  3925
+batch idx: 1, loss: 0.424793 auc: 0.8419, acc: 0.8112, precision: 0.9453, recall: 0.5250, f1: 0.6751, time: 0.089s
+y_pred: tensor([0.0866, 0.1634, 0.1570,  ..., 0.9716, 0.9795, 0.9799],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12414
+正样本数量： 7390
+TP:  3758
+TN:  12189
+FP:  225
+FN:  3632
+batch idx: 2, loss: 0.432008 auc: 0.8363, acc: 0.8052, precision: 0.9435, recall: 0.5085, f1: 0.6609, time: 0.087s
+First attempt - auc_train: 0.8347502592 acc_train: 0.8139482054
+y_pred: tensor([0.1228, 0.1104, 0.0990,  ..., 0.9806, 0.9777, 0.9735])
+负样本数量： 15621
+正样本数量： 7030
+TP:  3486
+TN:  15202
+FP:  419
+FN:  3544
+y_pred: tensor([0.0928, 0.0812, 0.0736,  ..., 0.9904, 0.9891, 0.9850])
+负样本数量： 1945
+正样本数量： 899
+TP:  445
+TN:  1880
+FP:  65
+FN:  454
+First attempt - auc_val: 0.8327616661 acc_val: 0.8250408370
+Epoch: 0034 loss_train: 0.4274621705 auc_train: 0.8376365733 acc_train: 0.8101223329 precision_train: 0.9462355107 recall_train: 0.5132060564 f1_train: 0.6654322503 loss_val: 0.4285742342 auc_val: 0.8289309101 acc_val: 0.8212756928 precision_val: 0.8826253421 recall_val: 0.4954346302 f1_val: 0.6346196945 time: 0.3591s
+Epoch 0034: val_loss 没有改善 0.428574，最佳值 0.418399，等待 2/15
+y_pred: tensor([0.0920, 0.1970, 0.1851,  ..., 0.9809, 0.9843, 0.9834],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13793
+正样本数量： 8061
+TP:  4199
+TN:  13498
+FP:  295
+FN:  3862
+batch idx: 0, loss: 0.431727 auc: 0.8332, acc: 0.8098, precision: 0.9344, recall: 0.5209, f1: 0.6689, time: 0.087s
+y_pred: tensor([0.2373, 0.2388, 0.1091,  ..., 0.9527, 0.9582, 0.9663],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13566
+正样本数量： 8046
+TP:  4253
+TN:  13293
+FP:  273
+FN:  3793
+batch idx: 1, loss: 0.422810 auc: 0.8455, acc: 0.8119, precision: 0.9397, recall: 0.5286, f1: 0.6766, time: 0.090s
+y_pred: tensor([0.2608, 0.1401, 0.1098,  ..., 0.9822, 0.2635, 0.3716],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13052
+正样本数量： 7412
+TP:  3959
+TN:  12761
+FP:  291
+FN:  3453
+batch idx: 2, loss: 0.424272 auc: 0.8358, acc: 0.8170, precision: 0.9315, recall: 0.5341, f1: 0.6790, time: 0.088s
+First attempt - auc_train: 0.8332465413 acc_train: 0.8097831061
+y_pred: tensor([0.0923, 0.0812, 0.0739,  ..., 0.0723, 0.0714, 0.0702])
+负样本数量： 15431
+正样本数量： 7133
+TP:  3606
+TN:  14984
+FP:  447
+FN:  3527
+y_pred: tensor([0.0926, 0.0788, 0.0702,  ..., 0.2052, 0.1818, 0.4775])
+负样本数量： 2135
+正样本数量： 796
+TP:  362
+TN:  2055
+FP:  80
+FN:  434
+First attempt - auc_val: 0.8338298901 acc_val: 0.8238787449
+Epoch: 0035 loss_train: 0.4262694617 auc_train: 0.8381922611 acc_train: 0.8128971505 precision_train: 0.9351893901 recall_train: 0.5278741945 f1_train: 0.6748123445 loss_val: 0.4277334809 auc_val: 0.8249214589 acc_val: 0.8242559879 precision_val: 0.8543579249 recall_val: 0.4801557556 f1_val: 0.6147743530 time: 0.3653s
+Epoch 0035: val_loss 没有改善 0.427733，最佳值 0.418399，等待 3/15
+y_pred: tensor([0.3258, 0.1273, 0.3653,  ..., 0.9864, 0.9741, 0.9782],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13945
+正样本数量： 7726
+TP:  3997
+TN:  13700
+FP:  245
+FN:  3729
+batch idx: 0, loss: 0.421597 auc: 0.8366, acc: 0.8166, precision: 0.9422, recall: 0.5173, f1: 0.6679, time: 0.088s
+y_pred: tensor([0.1272, 0.2379, 0.1119,  ..., 0.9810, 0.9825, 0.9810],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13455
+正样本数量： 8238
+TP:  4386
+TN:  13156
+FP:  299
+FN:  3852
+batch idx: 1, loss: 0.427350 auc: 0.8428, acc: 0.8086, precision: 0.9362, recall: 0.5324, f1: 0.6788, time: 0.087s
+y_pred: tensor([0.1265, 0.1099, 0.1826,  ..., 0.9805, 0.9800, 0.9858],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13011
+正样本数量： 7555
+TP:  3903
+TN:  12790
+FP:  221
+FN:  3652
+batch idx: 2, loss: 0.427075 auc: 0.8344, acc: 0.8117, precision: 0.9464, recall: 0.5166, f1: 0.6684, time: 0.087s
+First attempt - auc_train: 0.8366070684 acc_train: 0.8166212911
+y_pred: tensor([0.2580, 0.1180, 0.0959,  ..., 0.9773, 0.9817, 0.9761])
+负样本数量： 15729
+正样本数量： 7035
+TP:  3416
+TN:  15344
+FP:  385
+FN:  3619
+y_pred: tensor([0.2293, 0.1992, 0.2032,  ..., 0.0668, 0.0684, 0.0669])
+负样本数量： 1837
+正样本数量： 894
+TP:  460
+TN:  1775
+FP:  62
+FN:  434
+First attempt - auc_val: 0.8313270753 acc_val: 0.8241082411
+Epoch: 0036 loss_train: 0.4253403445 auc_train: 0.8379351113 acc_train: 0.8123162377 precision_train: 0.9416115904 recall_train: 0.5221221093 f1_train: 0.6717055859 loss_val: 0.4245031923 auc_val: 0.8328136791 acc_val: 0.8212448932 precision_val: 0.8899684596 recall_val: 0.5000567632 f1_val: 0.6401042351 time: 0.3630s
+Epoch 0036: val_loss 没有改善 0.424503，最佳值 0.418399，等待 4/15
+y_pred: tensor([0.2545, 0.2501, 0.2382,  ..., 0.1425, 0.2792, 0.3735],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14043
+正样本数量： 8219
+TP:  4256
+TN:  13815
+FP:  228
+FN:  3963
+batch idx: 0, loss: 0.428687 auc: 0.8329, acc: 0.8117, precision: 0.9492, recall: 0.5178, f1: 0.6701, time: 0.090s
+y_pred: tensor([0.4357, 0.2342, 0.1261,  ..., 0.1746, 0.1622, 0.3002],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13725
+正样本数量： 7983
+TP:  4167
+TN:  13476
+FP:  249
+FN:  3816
+batch idx: 1, loss: 0.421711 auc: 0.8414, acc: 0.8127, precision: 0.9436, recall: 0.5220, f1: 0.6722, time: 0.090s
+y_pred: tensor([0.4453, 0.2574, 0.1344,  ..., 0.9897, 0.9845, 0.9854],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12643
+正样本数量： 7317
+TP:  3882
+TN:  12356
+FP:  287
+FN:  3435
+batch idx: 2, loss: 0.422049 auc: 0.8418, acc: 0.8135, precision: 0.9312, recall: 0.5305, f1: 0.6760, time: 0.088s
+First attempt - auc_train: 0.8329406568 acc_train: 0.8117419819
+y_pred: tensor([0.2634, 0.3797, 0.1906,  ..., 0.0641, 0.0639, 0.0632])
+负样本数量： 15367
+正样本数量： 7178
+TP:  3648
+TN:  14938
+FP:  429
+FN:  3530
+y_pred: tensor([0.0898, 0.0778, 0.0673,  ..., 0.1473, 0.3064, 0.3006])
+负样本数量： 2199
+正样本数量： 751
+TP:  340
+TN:  2131
+FP:  68
+FN:  411
+First attempt - auc_val: 0.8374186612 acc_val: 0.8243956531
+Epoch: 0037 loss_train: 0.4241486887 auc_train: 0.8387104146 acc_train: 0.8126702941 precision_train: 0.9413084080 recall_train: 0.5234513583 f1_train: 0.6727274163 loss_val: 0.4250289798 auc_val: 0.8147208029 acc_val: 0.8310113859 precision_val: 0.8640544518 recall_val: 0.4804746268 f1_val: 0.6174789538 time: 0.3669s
+Epoch 0037: val_loss 没有改善 0.425029，最佳值 0.418399，等待 5/15
+y_pred: tensor([0.2762, 0.1279, 0.0934,  ..., 0.4765, 0.6129, 0.5804],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13560
+正样本数量： 7904
+TP:  4199
+TN:  13275
+FP:  285
+FN:  3705
+batch idx: 0, loss: 0.421426 auc: 0.8411, acc: 0.8141, precision: 0.9364, recall: 0.5312, f1: 0.6779, time: 0.088s
+y_pred: tensor([0.2728, 0.1270, 0.3249,  ..., 0.9707, 0.9739, 0.9818],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13858
+正样本数量： 8316
+TP:  4405
+TN:  13635
+FP:  223
+FN:  3911
+batch idx: 1, loss: 0.421075 auc: 0.8427, acc: 0.8136, precision: 0.9518, recall: 0.5297, f1: 0.6806, time: 0.097s
+y_pred: tensor([0.3344, 0.3190, 0.1488,  ..., 0.2556, 0.2516, 0.3657],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12993
+正样本数量： 7299
+TP:  3780
+TN:  12723
+FP:  270
+FN:  3519
+batch idx: 2, loss: 0.426183 auc: 0.8351, acc: 0.8133, precision: 0.9333, recall: 0.5179, f1: 0.6661, time: 0.085s
+First attempt - auc_train: 0.8410979598 acc_train: 0.8141073425
+y_pred: tensor([0.2532, 0.2194, 0.1230,  ..., 0.1893, 0.1756, 0.1618])
+负样本数量： 15429
+正样本数量： 7049
+TP:  3458
+TN:  15055
+FP:  374
+FN:  3591
+y_pred: tensor([0.0877, 0.0765, 0.2068,  ..., 0.0915, 0.0853, 0.0777])
+负样本数量： 2137
+正样本数量： 880
+TP:  453
+TN:  2062
+FP:  75
+FN:  427
+First attempt - auc_val: 0.8327801838 acc_val: 0.8236053030
+Epoch: 0038 loss_train: 0.4228947759 auc_train: 0.8396358558 acc_train: 0.8136496492 precision_train: 0.9405296834 recall_train: 0.5262769804 f1_train: 0.6748921079 loss_val: 0.4175347388 auc_val: 0.8320541760 acc_val: 0.8286074244 precision_val: 0.8801776903 recall_val: 0.5026693825 f1_val: 0.6395346272 time: 0.3690s
+Best model so far, saving...
+Epoch 0038: val_loss 没有改善 0.417535，最佳值 0.418399，等待 6/15
+y_pred: tensor([0.0910, 0.0791, 0.0725,  ..., 0.2851, 0.3057, 0.3353],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13944
+正样本数量： 7959
+TP:  4104
+TN:  13718
+FP:  226
+FN:  3855
+batch idx: 0, loss: 0.419119 auc: 0.8435, acc: 0.8137, precision: 0.9478, recall: 0.5156, f1: 0.6679, time: 0.085s
+y_pred: tensor([0.4448, 0.1636, 0.2959,  ..., 0.1769, 0.2331, 0.1251],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13687
+正样本数量： 8344
+TP:  4447
+TN:  13467
+FP:  220
+FN:  3897
+batch idx: 1, loss: 0.424411 auc: 0.8387, acc: 0.8131, precision: 0.9529, recall: 0.5330, f1: 0.6836, time: 0.086s
+y_pred: tensor([0.4116, 0.1347, 0.1114,  ..., 0.5857, 0.7055, 0.7626],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12780
+正样本数量： 7216
+TP:  3754
+TN:  12533
+FP:  247
+FN:  3462
+batch idx: 2, loss: 0.421386 auc: 0.8390, acc: 0.8145, precision: 0.9383, recall: 0.5202, f1: 0.6693, time: 0.088s
+First attempt - auc_train: 0.8434713131 acc_train: 0.8136784915
+y_pred: tensor([0.1212, 0.1054, 0.0971,  ..., 0.1679, 0.2635, 0.1800])
+负样本数量： 15285
+正样本数量： 7181
+TP:  3633
+TN:  14864
+FP:  421
+FN:  3548
+y_pred: tensor([0.3393, 0.3069, 0.3027,  ..., 0.4905, 0.1819, 0.3637])
+负样本数量： 2281
+正样本数量： 748
+TP:  336
+TN:  2218
+FP:  63
+FN:  412
+First attempt - auc_val: 0.8345864721 acc_val: 0.8233330366
+Epoch: 0039 loss_train: 0.4216387868 auc_train: 0.8403955334 acc_train: 0.8137727839 precision_train: 0.9463106494 recall_train: 0.5229444329 f1_train: 0.6736103366 loss_val: 0.4158228040 auc_val: 0.8227599842 acc_val: 0.8332578025 precision_val: 0.8691286059 recall_val: 0.4775581284 f1_val: 0.6163025854 time: 0.3581s
+Best model so far, saving...
+已保存最佳模型到 ../model/expCEKT2025-08-02 12-58-23//checkpoints/best_model.pt
+Epoch 0039: val_loss 改善从 0.415823 到 0.415823
+y_pred: tensor([0.3418, 0.3197, 0.2317,  ..., 0.9878, 0.9750, 0.9846],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14166
+正样本数量： 8179
+TP:  4324
+TN:  13881
+FP:  285
+FN:  3855
+batch idx: 0, loss: 0.420520 auc: 0.8414, acc: 0.8147, precision: 0.9382, recall: 0.5287, f1: 0.6763, time: 0.088s
+y_pred: tensor([0.0884, 0.0885, 0.0691,  ..., 0.9826, 0.9899, 0.9872],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13726
+正样本数量： 8157
+TP:  4360
+TN:  13458
+FP:  268
+FN:  3797
+batch idx: 1, loss: 0.419745 auc: 0.8429, acc: 0.8142, precision: 0.9421, recall: 0.5345, f1: 0.6820, time: 0.088s
+y_pred: tensor([0.3466, 0.3600, 0.3321,  ..., 0.9843, 0.9845, 0.9814],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12519
+正样本数量： 7183
+TP:  3741
+TN:  12299
+FP:  220
+FN:  3442
+batch idx: 2, loss: 0.425304 auc: 0.8342, acc: 0.8141, precision: 0.9445, recall: 0.5208, f1: 0.6714, time: 0.087s
+First attempt - auc_train: 0.8414411867 acc_train: 0.8147236518
+y_pred: tensor([0.4505, 0.4135, 0.4069,  ..., 0.3633, 0.5506, 0.6194])
+负样本数量： 15645
+正样本数量： 7012
+TP:  3494
+TN:  15250
+FP:  395
+FN:  3518
+y_pred: tensor([0.2521, 0.2186, 0.1914,  ..., 0.9758, 0.9763, 0.9772])
+负样本数量： 1921
+正样本数量： 917
+TP:  455
+TN:  1866
+FP:  55
+FN:  462
+First attempt - auc_val: 0.8313914356 acc_val: 0.8272939930
+Epoch: 0040 loss_train: 0.4218561153 auc_train: 0.8395070502 acc_train: 0.8143645203 precision_train: 0.9415715157 recall_train: 0.5279980847 f1_train: 0.6765669823 loss_val: 0.4225423336 auc_val: 0.8355360920 acc_val: 0.8225617252 precision_val: 0.8952941681 recall_val: 0.4972359271 f1_val: 0.6393717889 time: 0.3614s
+Epoch 0040: val_loss 没有改善 0.422542，最佳值 0.415823，等待 1/15
+y_pred: tensor([0.2611, 0.1238, 0.2636,  ..., 0.9662, 0.9804, 0.9831],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13602
+正样本数量： 8256
+TP:  4406
+TN:  13339
+FP:  263
+FN:  3850
+batch idx: 0, loss: 0.423105 auc: 0.8414, acc: 0.8118, precision: 0.9437, recall: 0.5337, f1: 0.6818, time: 0.088s
+y_pred: tensor([0.2548, 0.1221, 0.1001,  ..., 0.3611, 0.3455, 0.4015],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13856
+正样本数量： 7862
+TP:  4078
+TN:  13624
+FP:  232
+FN:  3784
+batch idx: 1, loss: 0.418095 auc: 0.8410, acc: 0.8151, precision: 0.9462, recall: 0.5187, f1: 0.6701, time: 0.091s
+y_pred: tensor([0.4569, 0.4041, 0.4002,  ..., 0.9885, 0.9790, 0.9818],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12953
+正样本数量： 7401
+TP:  3829
+TN:  12760
+FP:  193
+FN:  3572
+batch idx: 2, loss: 0.420516 auc: 0.8392, acc: 0.8150, precision: 0.9520, recall: 0.5174, f1: 0.6704, time: 0.088s
+First attempt - auc_train: 0.8413707748 acc_train: 0.8118309086
+y_pred: tensor([0.0851, 0.0744, 0.0668,  ..., 0.2692, 0.2349, 0.1952])
+负样本数量： 15531
+正样本数量： 6984
+TP:  3428
+TN:  15151
+FP:  380
+FN:  3556
+y_pred: tensor([0.1241, 0.2479, 0.2508,  ..., 0.9718, 0.9815, 0.9824])
+负样本数量： 2035
+正样本数量： 945
+TP:  467
+TN:  1987
+FP:  48
+FN:  478
+First attempt - auc_val: 0.8309310461 acc_val: 0.8251832112
+Epoch: 0041 loss_train: 0.4205722213 auc_train: 0.8405068966 acc_train: 0.8139797481 precision_train: 0.9472855463 recall_train: 0.5232441772 f1_train: 0.6740812521 loss_val: 0.4172767848 auc_val: 0.8355891532 acc_val: 0.8243365720 precision_val: 0.9035031003 recall_val: 0.4925080456 f1_val: 0.6375057120 time: 0.3689s
+Epoch 0041: val_loss 没有改善 0.417277，最佳值 0.415823，等待 2/15
+y_pred: tensor([0.0871, 0.0815, 0.0674,  ..., 0.1903, 0.1818, 0.2236],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14058
+正样本数量： 7550
+TP:  3914
+TN:  13872
+FP:  186
+FN:  3636
+batch idx: 0, loss: 0.409123 auc: 0.8437, acc: 0.8231, precision: 0.9546, recall: 0.5184, f1: 0.6719, time: 0.088s
+y_pred: tensor([0.4285, 0.4126, 0.4028,  ..., 0.2450, 0.5596, 0.6918],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13745
+正样本数量： 8331
+TP:  4433
+TN:  13496
+FP:  249
+FN:  3898
+batch idx: 1, loss: 0.422266 auc: 0.8413, acc: 0.8121, precision: 0.9468, recall: 0.5321, f1: 0.6813, time: 0.089s
+y_pred: tensor([0.2744, 0.4049, 0.2968,  ..., 0.9757, 0.9865, 0.9826],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12608
+正样本数量： 7638
+TP:  3983
+TN:  12388
+FP:  220
+FN:  3655
+batch idx: 2, loss: 0.426861 auc: 0.8383, acc: 0.8086, precision: 0.9477, recall: 0.5215, f1: 0.6727, time: 0.089s
+First attempt - auc_train: 0.8436908776 acc_train: 0.8231210663
+y_pred: tensor([0.0867, 0.0752, 0.2022,  ..., 0.9863, 0.9903, 0.9867])
+负样本数量： 15510
+正样本数量： 7078
+TP:  3604
+TN:  15063
+FP:  447
+FN:  3474
+y_pred: tensor([0.2720, 0.1233, 0.0946,  ..., 0.9865, 0.9806, 0.9908])
+负样本数量： 2056
+正样本数量： 851
+TP:  399
+TN:  2004
+FP:  52
+FN:  452
+First attempt - auc_val: 0.8327139889 acc_val: 0.8264122543
+Epoch: 0042 loss_train: 0.4194164773 auc_train: 0.8410902408 acc_train: 0.8146247250 precision_train: 0.9497027272 recall_train: 0.5239970587 f1_train: 0.6753324153 loss_val: 0.4230077267 auc_val: 0.8288197871 acc_val: 0.8265188206 precision_val: 0.8871787700 recall_val: 0.4890217748 f1_val: 0.6302902327 time: 0.3656s
+Epoch 0042: val_loss 没有改善 0.423008，最佳值 0.415823，等待 3/15
+y_pred: tensor([0.2804, 0.1245, 0.2529,  ..., 0.9766, 0.9901, 0.9872],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14016
+正样本数量： 7845
+TP:  4118
+TN:  13705
+FP:  311
+FN:  3727
+batch idx: 0, loss: 0.419453 auc: 0.8402, acc: 0.8153, precision: 0.9298, recall: 0.5249, f1: 0.6710, time: 0.095s
+y_pred: tensor([0.1288, 0.1105, 0.1058,  ..., 0.2306, 0.2047, 0.2064],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13708
+正样本数量： 8057
+TP:  4235
+TN:  13467
+FP:  241
+FN:  3822
+batch idx: 1, loss: 0.421232 auc: 0.8394, acc: 0.8133, precision: 0.9462, recall: 0.5256, f1: 0.6758, time: 0.089s
+y_pred: tensor([0.0840, 0.1929, 0.3493,  ..., 0.0765, 0.1884, 0.2416],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12687
+正样本数量： 7617
+TP:  4093
+TN:  12488
+FP:  199
+FN:  3524
+batch idx: 2, loss: 0.415400 auc: 0.8455, acc: 0.8166, precision: 0.9536, recall: 0.5374, f1: 0.6874, time: 0.087s
+First attempt - auc_train: 0.8402001919 acc_train: 0.8152874983
+y_pred: tensor([0.4526, 0.4099, 0.2265,  ..., 0.9874, 0.9911, 0.9830])
+负样本数量： 15535
+正样本数量： 7114
+TP:  3524
+TN:  15164
+FP:  371
+FN:  3590
+y_pred: tensor([0.2719, 0.2291, 0.1971,  ..., 0.9805, 0.9881, 0.9770])
+负样本数量： 2031
+正样本数量： 815
+TP:  374
+TN:  1976
+FP:  55
+FN:  441
+First attempt - auc_val: 0.8325106439 acc_val: 0.8251136916
+Epoch: 0043 loss_train: 0.4186949829 auc_train: 0.8416809102 acc_train: 0.8150829195 precision_train: 0.9431909805 recall_train: 0.5293002938 f1_train: 0.6780690114 loss_val: 0.4216987491 auc_val: 0.8274524717 acc_val: 0.8254170004 precision_val: 0.8882722754 recall_val: 0.4771284825 f1_val: 0.6207448218 time: 0.3671s
+Epoch 0043: val_loss 没有改善 0.421699，最佳值 0.415823，等待 4/15
+y_pred: tensor([0.2593, 0.1150, 0.2126,  ..., 0.3544, 0.3829, 0.4249],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13922
+正样本数量： 8262
+TP:  4361
+TN:  13745
+FP:  177
+FN:  3901
+batch idx: 0, loss: 0.416992 auc: 0.8431, acc: 0.8162, precision: 0.9610, recall: 0.5278, f1: 0.6814, time: 0.086s
+y_pred: tensor([0.2594, 0.2455, 0.1201,  ..., 0.9753, 0.9835, 0.9894],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13795
+正样本数量： 7922
+TP:  4141
+TN:  13569
+FP:  226
+FN:  3781
+batch idx: 1, loss: 0.417215 auc: 0.8415, acc: 0.8155, precision: 0.9482, recall: 0.5227, f1: 0.6739, time: 0.087s
+y_pred: tensor([0.4718, 0.2446, 0.1183,  ..., 0.9871, 0.9856, 0.9831],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12694
+正样本数量： 7335
+TP:  3875
+TN:  12427
+FP:  267
+FN:  3460
+batch idx: 2, loss: 0.418999 auc: 0.8419, acc: 0.8139, precision: 0.9355, recall: 0.5283, f1: 0.6753, time: 0.088s
+First attempt - auc_train: 0.8430542589 acc_train: 0.8161738190
+y_pred: tensor([0.1263, 0.2220, 0.1688,  ..., 0.9870, 0.9826, 0.9840])
+负样本数量： 15605
+正样本数量： 7048
+TP:  3494
+TN:  15189
+FP:  416
+FN:  3554
+y_pred: tensor([0.2701, 0.2266, 0.2057,  ..., 0.1994, 0.5481, 0.7852])
+负样本数量： 1961
+正样本数量： 881
+TP:  464
+TN:  1926
+FP:  35
+FN:  417
+First attempt - auc_val: 0.8297520895 acc_val: 0.8247472741
+Epoch: 0044 loss_train: 0.4177351693 auc_train: 0.8421273275 acc_train: 0.8151946014 precision_train: 0.9482608820 recall_train: 0.5262829520 f1_train: 0.6768686203 loss_val: 0.4083890766 auc_val: 0.8389216074 acc_val: 0.8328521733 precision_val: 0.9117329288 recall_val: 0.5112088536 f1_val: 0.6550856895 time: 0.3582s
+Best model so far, saving...
+已保存最佳模型到 ../model/expCEKT2025-08-02 12-58-23//checkpoints/best_model.pt
+Epoch 0044: val_loss 改善从 0.408389 到 0.408389
+y_pred: tensor([0.3650, 0.2853, 0.4459,  ..., 0.9879, 0.9869, 0.9749],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14230
+正样本数量： 7926
+TP:  4196
+TN:  13978
+FP:  252
+FN:  3730
+batch idx: 0, loss: 0.411469 auc: 0.8443, acc: 0.8203, precision: 0.9433, recall: 0.5294, f1: 0.6782, time: 0.087s
+y_pred: tensor([0.4619, 0.4151, 0.2251,  ..., 0.9029, 0.9472, 0.9598],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13721
+正样本数量： 8335
+TP:  4408
+TN:  13537
+FP:  184
+FN:  3927
+batch idx: 1, loss: 0.416408 auc: 0.8474, acc: 0.8136, precision: 0.9599, recall: 0.5289, f1: 0.6820, time: 0.090s
+y_pred: tensor([0.1339, 0.1129, 0.0949,  ..., 0.9862, 0.9879, 0.9855],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12460
+正样本数量： 7258
+TP:  3809
+TN:  12232
+FP:  228
+FN:  3449
+batch idx: 2, loss: 0.423443 auc: 0.8356, acc: 0.8135, precision: 0.9435, recall: 0.5248, f1: 0.6745, time: 0.087s
+First attempt - auc_train: 0.8443330427 acc_train: 0.8202744178
+y_pred: tensor([0.3775, 0.3223, 0.3138,  ..., 0.3249, 0.3516, 0.3940])
+负样本数量： 15557
+正样本数量： 7048
+TP:  3529
+TN:  15210
+FP:  347
+FN:  3519
+y_pred: tensor([0.4289, 0.2220, 0.3676,  ..., 0.9910, 0.9911, 0.9910])
+负样本数量： 2009
+正样本数量： 881
+TP:  427
+TN:  1928
+FP:  81
+FN:  454
+First attempt - auc_val: 0.8315784346 acc_val: 0.8289758903
+Epoch: 0045 loss_train: 0.4171065489 auc_train: 0.8424304229 acc_train: 0.8158019559 precision_train: 0.9489326850 recall_train: 0.5276837904 f1_train: 0.6782124627 loss_val: 0.4274397045 auc_val: 0.8332570931 acc_val: 0.8219273915 precision_val: 0.8755129487 recall_val: 0.4926929625 f1_val: 0.6304655715 time: 0.3656s
+Epoch 0045: val_loss 没有改善 0.427440，最佳值 0.408389，等待 1/15
+y_pred: tensor([0.4501, 0.2380, 0.1332,  ..., 0.9887, 0.9828, 0.9836],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13587
+正样本数量： 8069
+TP:  4357
+TN:  13399
+FP:  188
+FN:  3712
+batch idx: 0, loss: 0.408974 auc: 0.8506, acc: 0.8199, precision: 0.9586, recall: 0.5400, f1: 0.6908, time: 0.088s
+y_pred: tensor([0.0857, 0.0783, 0.0604,  ..., 0.9835, 0.9796, 0.9906],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13905
+正样本数量： 8107
+TP:  4256
+TN:  13658
+FP:  247
+FN:  3851
+batch idx: 1, loss: 0.421133 auc: 0.8390, acc: 0.8138, precision: 0.9451, recall: 0.5250, f1: 0.6750, time: 0.090s
+y_pred: tensor([0.3495, 0.0945, 0.0819,  ..., 0.9868, 0.9916, 0.9835],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12919
+正样本数量： 7343
+TP:  3879
+TN:  12673
+FP:  246
+FN:  3464
+batch idx: 2, loss: 0.417749 auc: 0.8406, acc: 0.8169, precision: 0.9404, recall: 0.5283, f1: 0.6765, time: 0.087s
+First attempt - auc_train: 0.8506322743 acc_train: 0.8199113410
+y_pred: tensor([0.0822, 0.0708, 0.0631,  ..., 0.2379, 0.1327, 0.2879])
+负样本数量： 15714
+正样本数量： 6904
+TP:  3382
+TN:  15325
+FP:  389
+FN:  3522
+y_pred: tensor([0.0772, 0.0677, 0.0610,  ..., 0.6598, 0.7542, 0.8338])
+负样本数量： 1852
+正样本数量： 1025
+TP:  523
+TN:  1826
+FP:  26
+FN:  502
+First attempt - auc_val: 0.8291308650 acc_val: 0.8270846229
+Epoch: 0046 loss_train: 0.4159521560 auc_train: 0.8434218025 acc_train: 0.8168795965 precision_train: 0.9480490598 recall_train: 0.5310681322 f1_train: 0.6807768851 loss_val: 0.4156032354 auc_val: 0.8379845444 acc_val: 0.8217800591 precision_val: 0.9247427521 recall_val: 0.5000524263 f1_val: 0.6490894483 time: 0.3679s
+Epoch 0046: val_loss 没有改善 0.415603，最佳值 0.408389，等待 2/15
+y_pred: tensor([0.0849, 0.0765, 0.0674,  ..., 0.7933, 0.8777, 0.9636],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13201
+正样本数量： 8591
+TP:  4634
+TN:  12971
+FP:  230
+FN:  3957
+batch idx: 0, loss: 0.421824 auc: 0.8475, acc: 0.8079, precision: 0.9527, recall: 0.5394, f1: 0.6888, time: 0.089s
+y_pred: tensor([0.2533, 0.0985, 0.0731,  ..., 0.9670, 0.9840, 0.9874],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14306
+正样本数量： 7650
+TP:  3894
+TN:  14127
+FP:  179
+FN:  3756
+batch idx: 1, loss: 0.413292 auc: 0.8371, acc: 0.8208, precision: 0.9561, recall: 0.5090, f1: 0.6643, time: 0.092s
+y_pred: tensor([0.3358, 0.0977, 0.2101,  ..., 0.9871, 0.9865, 0.9910],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12904
+正样本数量： 7278
+TP:  3832
+TN:  12709
+FP:  195
+FN:  3446
+batch idx: 2, loss: 0.410181 auc: 0.8454, acc: 0.8196, precision: 0.9516, recall: 0.5265, f1: 0.6779, time: 0.088s
+First attempt - auc_train: 0.8475052079 acc_train: 0.8078652717
+y_pred: tensor([0.2817, 0.1176, 0.2246,  ..., 0.9899, 0.9849, 0.9875])
+负样本数量： 15549
+正样本数量： 7043
+TP:  3483
+TN:  15179
+FP:  370
+FN:  3560
+y_pred: tensor([0.3129, 0.2749, 0.1147,  ..., 0.0723, 0.0749, 0.0750])
+负样本数量： 2017
+正样本数量： 886
+TP:  486
+TN:  1951
+FP:  66
+FN:  400
+First attempt - auc_val: 0.8291353400 acc_val: 0.8260446176
+Epoch: 0047 loss_train: 0.4150990546 auc_train: 0.8433438071 acc_train: 0.8160783022 precision_train: 0.9534475740 recall_train: 0.5249798605 f1_train: 0.6770265848 loss_val: 0.4112639874 auc_val: 0.8400762701 acc_val: 0.8327605106 precision_val: 0.8922028572 recall_val: 0.5215331554 f1_val: 0.6576279923 time: 0.3754s
+Epoch 0047: val_loss 没有改善 0.411264，最佳值 0.408389，等待 3/15
+y_pred: tensor([0.0795, 0.0773, 0.0643,  ..., 0.9824, 0.9888, 0.9926],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13787
+正样本数量： 8219
+TP:  4443
+TN:  13554
+FP:  233
+FN:  3776
+batch idx: 0, loss: 0.411957 auc: 0.8469, acc: 0.8178, precision: 0.9502, recall: 0.5406, f1: 0.6891, time: 0.089s
+y_pred: tensor([0.4634, 0.2194, 0.1233,  ..., 0.9703, 0.9649, 0.9812],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14151
+正样本数量： 7972
+TP:  4163
+TN:  13968
+FP:  183
+FN:  3809
+batch idx: 1, loss: 0.412458 auc: 0.8436, acc: 0.8196, precision: 0.9579, recall: 0.5222, f1: 0.6759, time: 0.089s
+y_pred: tensor([0.1235, 0.1606, 0.1013,  ..., 0.9884, 0.9821, 0.9854],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12473
+正样本数量： 7328
+TP:  3827
+TN:  12275
+FP:  198
+FN:  3501
+batch idx: 2, loss: 0.417755 auc: 0.8428, acc: 0.8132, precision: 0.9508, recall: 0.5222, f1: 0.6742, time: 0.084s
+First attempt - auc_train: 0.8469414114 acc_train: 0.8178224121
+y_pred: tensor([0.0826, 0.0713, 0.0608,  ..., 0.7989, 0.9066, 0.9407])
+负样本数量： 15430
+正样本数量： 7027
+TP:  3502
+TN:  15053
+FP:  377
+FN:  3525
+y_pred: tensor([0.2286, 0.1855, 0.1886,  ..., 0.1389, 0.1692, 0.1862])
+负样本数量： 2136
+正样本数量： 902
+TP:  435
+TN:  2097
+FP:  39
+FN:  467
+First attempt - auc_val: 0.8307528336 acc_val: 0.8262457140
+Epoch: 0048 loss_train: 0.4140563806 auc_train: 0.8444446731 acc_train: 0.8168559917 precision_train: 0.9529569515 recall_train: 0.5283409573 f1_train: 0.6797362517 loss_val: 0.4132829010 auc_val: 0.8329670861 acc_val: 0.8298443843 precision_val: 0.9102657608 recall_val: 0.4903125480 f1_val: 0.6372413681 time: 0.3615s
+Epoch 0048: val_loss 没有改善 0.413283，最佳值 0.408389，等待 4/15
+y_pred: tensor([0.3968, 0.3528, 0.3638,  ..., 0.9874, 0.9919, 0.9896],
+       grad_fn=<IndexBackward0>)
+负样本数量： 14248
+正样本数量： 7893
+TP:  4045
+TN:  14014
+FP:  234
+FN:  3848
+batch idx: 0, loss: 0.418860 auc: 0.8375, acc: 0.8156, precision: 0.9453, recall: 0.5125, f1: 0.6646, time: 0.083s
+y_pred: tensor([0.1266, 0.1896, 0.1072,  ..., 0.2257, 0.2811, 0.2681],
+       grad_fn=<IndexBackward0>)
+负样本数量： 13897
+正样本数量： 8114
+TP:  4302
+TN:  13718
+FP:  179
+FN:  3812
+batch idx: 1, loss: 0.412372 auc: 0.8452, acc: 0.8187, precision: 0.9601, recall: 0.5302, f1: 0.6831, time: 0.089s
+y_pred: tensor([0.2823, 0.1216, 0.0957,  ..., 0.9787, 0.9891, 0.9911],
+       grad_fn=<IndexBackward0>)
+负样本数量： 12266
+正样本数量： 7512
+TP:  4067
+TN:  12102
+FP:  164
+FN:  3445
+batch idx: 2, loss: 0.408700 auc: 0.8517, acc: 0.8175, precision: 0.9612, recall: 0.5414, f1: 0.6927, time: 0.086s
+First attempt - auc_train: 0.8374688634 acc_train: 0.8156361501
+y_pred: tensor([0.1330, 0.2909, 0.2943,  ..., 0.9881, 0.9919, 0.9873])
+负样本数量： 15590
+正样本数量： 6949
+TP:  3502
+TN:  15154
+FP:  436
+FN:  3447
+y_pred: tensor([0.4600, 0.1772, 0.3159,  ..., 0.9938, 0.9890, 0.9894])
+负样本数量： 1976
+正样本数量： 980
+TP:  520
+TN:  1906
+FP:  70
+FN:  460
+First attempt - auc_val: 0.8294476407 acc_val: 0.8277208394
+Epoch: 0049 loss_train: 0.4133107960 auc_train: 0.8447970847 acc_train: 0.8172807469 precision_train: 0.9555354544 recall_train: 0.5280248544 f1_train: 0.6801454519 loss_val: 0.4214571863 auc_val: 0.8371687978 acc_val: 0.8242122465 precision_val: 0.8853199163 recall_val: 0.5172848244 f1_val: 0.6528782355 time: 0.3579s
+Epoch 0049: val_loss 没有改善 0.421457，最佳值 0.408389，等待 5/15
+
+=== 完成所有epoch训练 ===
+最佳epoch: 44
+最佳验证损失: 0.408389
+总训练时间: 21.02秒
+Optimization Finished!
+Best Epoch: 0044
+y_pred: tensor([0.2744, 0.4105, 0.2925,  ..., 0.9881, 0.9840, 0.9851])
+负样本数量： 16001
+正样本数量： 6304
+TP:  2887
+TN:  15490
+FP:  511
+FN:  3417
+y_pred: tensor([0.0800, 0.0718, 0.0661, 0.1761, 0.1780, 0.1801, 0.1344, 0.1791, 0.1397,
+        0.2132, 0.2273, 0.1891, 0.1605, 0.1413, 0.1257, 0.3063, 0.1918, 0.1932,
+        0.1742, 0.1536, 0.1426, 0.1364, 0.3049, 0.1710, 0.2567, 0.2330, 0.1479,
+        0.1666, 0.2097, 0.2490, 0.2884, 0.3825, 0.4706, 0.5497, 0.6064, 0.2529,
+        0.3085, 0.3597, 0.4704, 0.5780, 0.7539, 0.8521, 0.8938, 0.3715, 0.6798,
+        0.8768, 0.9588, 0.9786, 0.9838, 0.2616, 0.2257, 0.2090, 0.2094, 0.1093,
+        0.1791, 0.1977, 0.1990, 0.2030, 0.2258, 0.3840, 0.2430, 0.2572, 0.1520,
+        0.2681, 0.2007, 0.1979, 0.3120, 0.3975, 0.4241, 0.4476, 0.5004, 0.5520,
+        0.2668, 0.1920, 0.2795, 0.1730, 0.3167, 0.3792, 0.4930, 0.6540, 0.8276,
+        0.9044, 0.9290, 0.4144, 0.2051, 0.4814, 0.6484, 0.8532, 0.8924, 0.9376,
+        0.9767, 0.9866, 0.9717, 0.9759, 0.9658, 0.9589, 0.9526, 0.9763, 0.0800,
+        0.0718, 0.0661, 0.0615, 0.0578, 0.0552, 0.0528, 0.0504, 0.0489, 0.0513,
+        0.0496, 0.0468, 0.0447, 0.0447, 0.0442, 0.0441, 0.0900, 0.2386, 0.1305,
+        0.1250, 0.1233, 0.1191, 0.1142, 0.1084, 0.1054, 0.0947, 0.0798, 0.0998,
+        0.0929, 0.0896, 0.0906, 0.0943, 0.0901, 0.0841, 0.0837, 0.0853, 0.0838,
+        0.0823, 0.0761, 0.0706, 0.0775, 0.0763, 0.0701, 0.0675, 0.0706, 0.0647,
+        0.0663, 0.0645, 0.0632, 0.0829, 0.0709, 0.0657, 0.0605, 0.0567, 0.0546,
+        0.0525, 0.0507, 0.0498, 0.2000, 0.1347, 0.1978, 0.1579, 0.1538, 0.1542,
+        0.2468, 0.2524, 0.3108, 0.1856, 0.2409, 0.1930, 0.1436, 0.1389, 0.2563,
+        0.2712, 0.2425, 0.1959, 0.2792, 0.2986, 0.1339, 0.1997, 0.1694, 0.2774,
+        0.2695, 0.2916, 0.3306, 0.3761, 0.4431, 0.5008, 0.5195, 0.5420, 0.6026,
+        0.7680, 0.8344, 0.9076, 0.9385, 0.9659, 0.9762, 0.9753, 0.4562, 0.4303,
+        0.2567, 0.2817, 0.4689, 0.3958, 0.4543, 0.5457, 0.5323, 0.2005, 0.2933,
+        0.3090, 0.1662, 0.2406, 0.2437, 0.2452, 0.2716, 0.2233, 0.3278, 0.3152,
+        0.3451, 0.5610, 0.7410, 0.8248, 0.8922, 0.9059, 0.9526, 0.9672, 0.9713,
+        0.9773, 0.9677, 0.9665, 0.9736])
+负样本数量： 159
+正样本数量： 70
+TP:  36
+TN:  151
+FP:  8
+FN:  34
+--------------------------------
+--------Testing-----------------
+--------------------------------
+loss_test: 0.4327585846 auc_test: 0.8180175946 acc_test: 0.8202449370 precision_test: 0.8338996201 recall_test: 0.4861244561 f1_test: 0.6133569855 auc_max: 0.8308176101 acc_max: 0.8238959874 auc_std_test: 0.0128000154 acc_std_test: 0.0036510505 first_attempt_auc_test: 0.8052175792 first_attempt_acc_test: 0.8238959874
+../model/expCEKT2025-08-02 12-58-23/
